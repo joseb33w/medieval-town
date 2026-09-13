@@ -1,0 +1,86 @@
+; Godot 4.7.1 — RPG Streaming Starter (data-driven full-world base).
+; Compatibility/WebGL2 + nothreads. IDENTICAL render config to godot-templates/3d.
+; Areas + their .glb stream from R2 at runtime; world.json/quests.json are loose files
+; served next to index.html (NOT packed), so chat edits can rewrite them with no re-export.
+
+config_version=5
+
+[application]
+
+config/name="Godot RPG Streaming Starter"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+AudioManager="*res://audio_manager.gd"
+; Multiplayer transport. Autoloaded so it lives INSIDE the engine pack the native player ships —
+; a game cannot bring its own netcode, so the engine has to already have it. Inert until a world's
+; `multiplayer` block turns it on (netsync.gd), so a single-player game pays nothing for it.
+Net="*res://net.gd"
+; Email auth (GoTrue REST over HTTPRequest). Autoloaded for the same reason as Net: a game cannot
+; bring its own auth code, so the engine has to already have it. Inert until a world sets
+; "auth": true.
+Auth="*res://auth.gd"
+; Persistence. Autoloaded for the same reason as Net and Auth: a game cannot bring its own save
+; code, so the engine has to already have it. Inert until a world marks a var `persist` or turns
+; on building — a game that saves nothing pays nothing.
+Save="*res://save.gd"
+
+[audio]
+
+; iOS ONLY, and inert everywhere else (web/desktop ignore it). Godot's default session category is
+; Ambient(0), which OBEYS THE HARDWARE SILENT SWITCH — a phone on silent plays no game audio at all,
+; which reads as "the game has no sound". Playback(3) ignores the switch, the way Music or a video
+; app does. Verified against the 4.6.3 enum: Ambient,Multi Route,Play and Record,Playback,Record,Solo Ambient.
+general/ios/session_category=3
+
+buses/default_bus_layout="res://default_bus_layout.tres"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+; FREE ROTATION, and on iOS this setting reaches much further than the game window.
+;
+; Godot's default here is "landscape", which on iPhone resolves to LandscapeLeft ONLY with
+; shouldAutorotate = NO. That alone would pin the game to one orientation — but GDTViewController also
+; SWIZZLES shouldAutorotate and supportedInterfaceOrientations onto the host application's root view
+; controller class (drivers/apple_embedded/godot_view_controller.mm,
+; propagateUIPreferencesToRootViewController). The change is to the CLASS and it is permanent for the
+; process, so once a game has been opened once, the whole app inherits the game's orientation policy —
+; chat included, long after the player is closed.
+;
+; "sensor" maps to UIInterfaceOrientationMaskAll with autorotate YES, so the game follows the device
+; and the app it was swizzled onto stays free too. The HUD already re-lays-out on every resize
+; (_relayout_ui + _safe_insets), so both orientations are handled.
+window/handheld/orientation="sensor"
+
+[input_devices]
+
+pointing/emulate_mouse_from_touch=true
+
+[physics]
+
+; RENDER-INTERPOLATION: without this, every object that moves in _physics_process (all enemies, the
+; player, vehicles) renders SNAPPED to the 60Hz physics tick. On mobile web the framerate runs below 60,
+; so that snapping IS visible jitter/stutter on every creature (incl. the legless snake) regardless of
+; any movement damping — the damping smooths the physics-step VALUES, but the render still steps. Turning
+; interpolation on makes the renderer smoothly tween transforms between ticks -> smooth motion at any FPS.
+; Spawn/teleport smears are prevented by reset_physics_interpolation() calls at the build/spawn sites, and
+; the third-person camera reads player.get_global_transform_interpolated() so the world doesn't slide.
+common/physics_interpolation=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method.web="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+scaling_3d/mode="bilinear"
+scaling_3d/scale=0.75
+lights_and_shadows/directional_shadow/size=512
+lights_and_shadows/positional_shadow/atlas_size=1024
