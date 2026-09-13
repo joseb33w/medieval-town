@@ -1,0 +1,207 @@
+{
+  "sky": {
+    "time": "day",
+    "weather": "cloudy"
+  },
+  "character_source": "meshy",
+  "director": {
+    "hide_hud": [
+      "attack",
+      "potion",
+      "stable",
+      "cycle",
+      "stats",
+      "health"
+    ],
+    "title": {
+      "kicker": "A SMALL TOWN IN THE HILLS",
+      "name": "Ashford\nGreen",
+      "tagline": "Left side: joystick to move  |  Right side: drag to look  |  USE opens doors and talks",
+      "hint": "Walk the streets. Open the hall door. Climb to the council chamber.",
+      "color": [
+        0.96,
+        0.88,
+        0.62
+      ],
+      "bg": [
+        0.05,
+        0.06,
+        0.05,
+        0.92
+      ]
+    },
+    "modes": [
+      {
+        "id": "explore",
+        "label": "ENTER THE TOWN",
+        "caption": "Explore Ashford Green - every window is a real window",
+        "chain": [
+          {
+            "id": "q_hall",
+            "toast": "Find Steward Aldric at the town hall, then climb to the council chamber"
+          },
+          {
+            "id": "q_town",
+            "toast": "Meet the townsfolk: the smith, the market and the gate guard"
+          }
+        ]
+      }
+    ],
+    "music": {
+      "default": "calm_town"
+    }
+  },
+  "regions": [
+    {
+      "name": "Market Square",
+      "center": [
+        10,
+        10
+      ],
+      "radius": 22,
+      "ambient": "town_crowd"
+    },
+    {
+      "name": "North Fields",
+      "center": [
+        10,
+        -55
+      ],
+      "radius": 45,
+      "ambient": "forest_birds"
+    },
+    {
+      "name": "South Meadows",
+      "center": [
+        10,
+        75
+      ],
+      "radius": 45,
+      "ambient": "forest_birds"
+    },
+    {
+      "name": "West Orchards",
+      "center": [
+        -55,
+        10
+      ],
+      "radius": 45,
+      "ambient": "forest_birds"
+    },
+    {
+      "name": "East Pastures",
+      "center": [
+        75,
+        10
+      ],
+      "radius": 45,
+      "ambient": "forest_birds"
+    }
+  ],
+  "zones": [
+    {
+      "name": "hall_upper",
+      "center": [
+        10,
+        5.6,
+        10
+      ],
+      "size": [
+        11.0,
+        4.4,
+        8.0
+      ]
+    },
+    {
+      "name": "hall_ground",
+      "center": [
+        10,
+        0.9,
+        10
+      ],
+      "size": [
+        11.0,
+        2.4,
+        8.0
+      ]
+    }
+  ],
+  "vars": {
+    "hall_visits": {
+      "init": 0,
+      "scope": "player"
+    }
+  },
+  "rules": [
+    {
+      "id": "hud_trim",
+      "when": {
+        "event": "start"
+      },
+      "then": [
+        {
+          "hud_hide": "stats"
+        },
+        {
+          "hud_hide": "health"
+        },
+        {
+          "hud_hide": "minimap"
+        }
+      ]
+    },
+    {
+      "id": "into_hall",
+      "when": {
+        "event": "enter_zone",
+        "target": "hall_ground"
+      },
+      "then": [
+        {
+          "add": "hall_visits",
+          "value": 1
+        },
+        {
+          "toast": "The town hall. The stair is at the back-left corner - climb it to the council chamber.",
+          "hold": 4.0
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "upstairs",
+      "when": {
+        "event": "enter_zone",
+        "target": "hall_upper"
+      },
+      "then": [
+        {
+          "set_flag": "hall_upper"
+        },
+        {
+          "sound": "pickup"
+        },
+        {
+          "toast": "The council chamber - look out through the tall windows over the square.",
+          "hold": 4.0
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "steward_met",
+      "when": {
+        "event": "talk",
+        "target": "steward"
+      },
+      "then": [
+        {
+          "toast": "Steward Aldric: the council chamber is upstairs - the hall door is open to visitors.",
+          "hold": 4.0
+        }
+      ],
+      "once": true
+    }
+  ],
+  "hud": []
+}

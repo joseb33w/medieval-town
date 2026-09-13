@@ -1,0 +1,26 @@
+{
+  "quests": [
+    {
+      "id": "q_hall",
+      "name": "The Council Chamber",
+      "steps": [
+        { "objective": { "type": "talk_to", "target": "steward" }, "desc": "Speak with Steward Aldric outside the town hall" },
+        { "objective": { "type": "set_flag", "target": "hall_upper" }, "desc": "Open the hall door, go inside and climb the stairs to the council chamber" }
+      ],
+      "rewards": { "xp": 60, "gold": 15 },
+      "on_complete_flags": ["toured_hall"]
+    },
+    {
+      "id": "q_town",
+      "name": "Meet the Townsfolk",
+      "prereq": { "quests": ["q_hall"] },
+      "steps": [
+        { "objective": { "type": "talk_to", "target": "blacksmith" }, "desc": "Visit Marta at the forge" },
+        { "objective": { "type": "talk_to", "target": "greta" }, "desc": "Say hello to Greta at the market stalls" },
+        { "objective": { "type": "talk_to", "target": "guard" }, "desc": "Check in with the guard at the town gate" }
+      ],
+      "rewards": { "xp": 80, "gold": 25 },
+      "on_complete_flags": ["met_town"]
+    }
+  ]
+}
