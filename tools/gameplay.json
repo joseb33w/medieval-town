@@ -8,15 +8,16 @@
     "hide_hud": [
       "attack",
       "potion",
-      "weapon",
       "stable",
-      "cycle"
+      "cycle",
+      "stats",
+      "health"
     ],
     "title": {
       "kicker": "A SMALL TOWN IN THE HILLS",
-      "name": "ASHFORD GREEN",
-      "tagline": "Walk the streets. Open the hall door. Climb to the council chamber.",
-      "hint": "Left side: joystick to move  |  Right side: drag to look  |  USE opens doors and talks",
+      "name": "Ashford\nGreen",
+      "tagline": "Left side: joystick to move  |  Right side: drag to look  |  USE opens doors and talks",
+      "hint": "Walk the streets. Open the hall door. Climb to the council chamber.",
       "color": [
         0.96,
         0.88,
@@ -57,7 +58,7 @@
         10,
         10
       ],
-      "radius": 16,
+      "radius": 22,
       "ambient": "town_crowd"
     },
     {
@@ -133,13 +134,19 @@
   },
   "rules": [
     {
-      "id": "welcome",
+      "id": "hud_trim",
       "when": {
         "event": "start"
       },
       "then": [
         {
-          "toast": "Welcome to Ashford Green. The town hall is straight ahead - USE opens its door."
+          "hud_hide": "stats"
+        },
+        {
+          "hud_hide": "health"
+        },
+        {
+          "hud_hide": "minimap"
         }
       ]
     },
@@ -155,7 +162,8 @@
           "value": 1
         },
         {
-          "toast": "The town hall. The stairs to the council chamber are along the east wall."
+          "toast": "The town hall. The stair is at the back-left corner - climb it to the council chamber.",
+          "hold": 4.0
         }
       ],
       "once": true
@@ -174,7 +182,22 @@
           "sound": "pickup"
         },
         {
-          "subtitle": "The council chamber. Look out through the tall windows over the square."
+          "toast": "The council chamber - look out through the tall windows over the square.",
+          "hold": 4.0
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "steward_met",
+      "when": {
+        "event": "talk",
+        "target": "steward"
+      },
+      "then": [
+        {
+          "toast": "Steward Aldric: the council chamber is upstairs - the hall door is open to visitors.",
+          "hold": 4.0
         }
       ],
       "once": true

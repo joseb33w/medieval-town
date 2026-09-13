@@ -1,0 +1,7536 @@
+{
+ "mode": "chunk",
+ "title": "Ashford Green",
+ "grid": {
+  "cell_size": 20
+ },
+ "start_cell": [
+  0,
+  1
+ ],
+ "goal": {
+  "type": "reach_cell",
+  "target": [
+   0,
+   0
+  ]
+ },
+ "character_source": "meshy",
+ "hero_model": "/cloud-mjvfxf53deudzlkx4zre/models/traveler.glb",
+ "default_npc_model": "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+ "sky": {
+  "time": "day",
+  "weather": "cloudy"
+ },
+ "items": {
+  "potion": {
+   "consumed": true
+  }
+ },
+ "cells": [
+  {
+   "cell": [
+    -3,
+    -3
+   ],
+   "ground": "grass",
+   "props": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.0,
+      -3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -7.0,
+      1.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      2.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_4.glb",
+     "pos": [
+      -3.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.0,
+      1.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.0,
+      -2.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      4.0,
+      -8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "count": 25
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "count": 10
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    -3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -3.0
+     ],
+     "to": [
+      8,
+      -3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0.0
+     ],
+     "to": [
+      8,
+      0.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      3.0
+     ],
+     "to": [
+      8,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      -9.3
+     ],
+     "to": [
+      5.8,
+      -9.3
+     ],
+     "spacing": 5.9
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      6.0
+     ],
+     "to": [
+      5.8,
+      6.0
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -6.0,
+      8.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      0.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      3.0,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.5,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Wheat.glb",
+     "count": 40,
+     "collider": "none"
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    -3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -8,
+      -2.0
+     ],
+     "to": [
+      8,
+      -2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -8,
+      2.0
+     ],
+     "to": [
+      8,
+      2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -8,
+      6.0
+     ],
+     "to": [
+      8,
+      6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      9.3
+     ],
+     "to": [
+      5.8,
+      9.3
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      8.0,
+      8.6
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -7.4,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 16
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    -3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.5,
+      9.3
+     ],
+     "to": [
+      -3.0,
+      9.3
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb",
+      "rot": 90
+     },
+     "from": [
+      3.0,
+      9.3
+     ],
+     "to": [
+      9.5,
+      9.3
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      -7.0
+     ],
+     "to": [
+      -3.0,
+      -7.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      -4.0
+     ],
+     "to": [
+      -3.0,
+      -4.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      -1.0
+     ],
+     "to": [
+      -3.0,
+      -1.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.5,
+      1.5
+     ],
+     "to": [
+      -3.0,
+      1.5
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_farmbuild/SmallBarn.glb",
+     "pos": [
+      6.0,
+      -4.0
+     ],
+     "rot": -90
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.8,
+      8.0
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.8,
+      8.0
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      8.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.5,
+      7.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      7.5,
+      -8.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      7.5,
+      2.0
+     ],
+     "rot": 0
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    -3
+   ],
+   "ground": "grass",
+   "rings": [
+    {
+     "part": {
+      "shape": "column",
+      "radius": 0.12,
+      "height": 1.0,
+      "material": "timber"
+     },
+     "half": [
+      7.0,
+      6.0
+     ],
+     "spacing": 1.4
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      3.0,
+      0.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -4.0,
+      -3.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -3.0,
+      3.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      5.5,
+      -4.0
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      8.6,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      0.0,
+      8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 22
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    -3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -3.0
+     ],
+     "to": [
+      8,
+      -3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0.0
+     ],
+     "to": [
+      8,
+      0.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      3.0
+     ],
+     "to": [
+      8,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      -9.3
+     ],
+     "to": [
+      5.8,
+      -9.3
+     ],
+     "spacing": 5.9
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      6.0
+     ],
+     "to": [
+      5.8,
+      6.0
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -6.0,
+      8.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      0.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      3.0,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.5,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Wheat.glb",
+     "count": 40,
+     "collider": "none"
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    -3
+   ],
+   "ground": "grass",
+   "props": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.0,
+      -3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -7.0,
+      1.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      2.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_4.glb",
+     "pos": [
+      -3.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.0,
+      1.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.0,
+      -2.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      4.0,
+      -8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "count": 25
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "count": 10
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    }
+   ]
+  },
+  {
+   "cell": [
+    -3,
+    -2
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/BirchTree_2.glb"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/BirchTree_2.glb"
+     },
+     "from": [
+      -8,
+      -2.0
+     ],
+     "to": [
+      8,
+      -2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/BirchTree_2.glb"
+     },
+     "from": [
+      -8,
+      2.0
+     ],
+     "to": [
+      8,
+      2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/BirchTree_2.glb"
+     },
+     "from": [
+      -8,
+      6.0
+     ],
+     "to": [
+      8,
+      6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      9.3
+     ],
+     "to": [
+      5.8,
+      9.3
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      8.0,
+      8.6
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -7.4,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 16
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    -2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      9.3
+     ],
+     "to": [
+      -2.0,
+      9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      2.0,
+      9.3
+     ],
+     "to": [
+      8.0,
+      9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      -8.0
+     ],
+     "to": [
+      -9.3,
+      8.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -9.3
+     ],
+     "to": [
+      8.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      0.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      6.0,
+      0.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      0.0,
+      3.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -6.0,
+      6.5
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      6.0,
+      6.5
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.6,
+      8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 16
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    -2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -3.5
+     ],
+     "to": [
+      8,
+      -3.5
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -1.0
+     ],
+     "to": [
+      8,
+      -1.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      1.5
+     ],
+     "to": [
+      8.0,
+      1.5
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -9.3
+     ],
+     "to": [
+      -2.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      2.0,
+      -9.3
+     ],
+     "to": [
+      8.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      -5.5,
+      6.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      0.0,
+      4.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      6.0,
+      4.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      7.2,
+      4.0
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.0,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      8.0,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      3.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      0.0,
+      8.6
+     ],
+     "rot": 0,
+     "sit": true
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    -2
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      -8.0
+     ],
+     "to": [
+      -9.3,
+      8.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_a",
+     "pos": [
+      6.4,
+      -2.0
+     ],
+     "rot": 90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      -5.5,
+      -5.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.5,
+      4.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -4.0,
+      0.0
+     ],
+     "rot": 90,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      3.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.5,
+      -6.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      8.8,
+      2.8
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      7.0,
+      6.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -8.5,
+      -8.5
+     ]
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      7.0,
+      -8.0
+     ],
+     "scale": 2.2
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ],
+   "populate": [
+    {
+     "set": [
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/market_woman.glb"
+     ],
+     "count": 2,
+     "vary": true,
+     "behaviour": "wander",
+     "radius": 5,
+     "speed": 1.2
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    -2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -9.3
+     ],
+     "to": [
+      8.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -8.0
+     ],
+     "to": [
+      9.3,
+      6.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -7,
+      -5.5
+     ],
+     "to": [
+      7,
+      -5.5
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -7,
+      -1.0
+     ],
+     "to": [
+      7,
+      -1.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      5.0,
+      5.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      2.0,
+      4.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      7.5,
+      8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -4.0,
+      4.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -5.2,
+      4.0
+     ]
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      5.0,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      -8.6,
+      3.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      0.0,
+      8.0
+     ],
+     "rot": 0,
+     "sit": true
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    -2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -3.0
+     ],
+     "to": [
+      8,
+      -3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0.0
+     ],
+     "to": [
+      8,
+      0.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -9.3
+     ],
+     "to": [
+      8.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -8.0
+     ],
+     "to": [
+      9.3,
+      2.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      -8.0
+     ],
+     "to": [
+      -9.3,
+      2.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      7.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      6.0,
+      3.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -6.0,
+      3.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      3.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    -2
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -3.0
+     ],
+     "to": [
+      8,
+      -3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0.0
+     ],
+     "to": [
+      8,
+      0.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      3.0
+     ],
+     "to": [
+      8,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      -9.3
+     ],
+     "to": [
+      5.8,
+      -9.3
+     ],
+     "spacing": 5.9
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      6.0
+     ],
+     "to": [
+      5.8,
+      6.0
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -6.0,
+      8.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      0.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      3.0,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.5,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Wheat.glb",
+     "count": 40,
+     "collider": "none"
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -3,
+    -1
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": "dirt",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_4.glb",
+     "pos": [
+      -3.0,
+      -7.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -7.0,
+      5.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -2.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      5.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      6.0,
+      6.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.5,
+      -3.5
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.0,
+      8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "count": 14
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    -1
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -8.0
+     ],
+     "to": [
+      8,
+      -8.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -5.5
+     ],
+     "to": [
+      8,
+      -5.5
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -3.0
+     ],
+     "to": [
+      8.0,
+      -3.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_c",
+     "pos": [
+      4.5,
+      6.15
+     ],
+     "rot": 0,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -5.5,
+      6.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.0,
+      8.2
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.0,
+      2.6
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      8.3,
+      3.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      -2.0,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.5,
+      8.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -8.5,
+      3.0
+     ]
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    -1
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      4
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      3.0
+     ],
+     "to": [
+      9.3,
+      9.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_b",
+     "pos": [
+      -5.0,
+      -6.65
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "MASON:house_a",
+     "pos": [
+      -5.5,
+      6.4
+     ],
+     "rot": 0,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      5.5,
+      -6.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      8.3,
+      -8.3
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      5.5,
+      3.0
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "pos": [
+      7.5,
+      7.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      -2.8
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      2.5,
+      -2.8
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    -1
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      -4
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      9.3
+     ],
+     "to": [
+      8.0,
+      9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_a",
+     "pos": [
+      -6.4,
+      -6.5
+     ],
+     "rot": -90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "MASON:house_c",
+     "pos": [
+      6.15,
+      -6.5
+     ],
+     "rot": 90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      6.8
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      6.0,
+      6.8
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      0.0,
+      4.5
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      -2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.5,
+      2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      -5.5,
+      3.2
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      8.8,
+      8.8
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      7.5,
+      3.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    -1
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      4
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      3.0,
+      -9.3
+     ],
+     "to": [
+      9.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -9.0
+     ],
+     "to": [
+      9.3,
+      -3.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_d",
+     "pos": [
+      -5.0,
+      -7.4
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      8.5,
+      -8.5
+     ]
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      -6.0,
+      6.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.3,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      5.5,
+      3.0
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.4,
+      -2.6
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      6.5,
+      6.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      8.8,
+      3.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    -1
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -3.0
+     ],
+     "to": [
+      8.0,
+      -3.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      -9.3
+     ],
+     "to": [
+      8.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      -9.0
+     ],
+     "to": [
+      -9.3,
+      -3.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -9.0
+     ],
+     "to": [
+      9.3,
+      -3.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      4.0,
+      -6.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -4.0,
+      -6.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -6.0,
+      -7.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      7.5,
+      -8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -7.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      -6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      7.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      3.0,
+      3.0
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.5,
+      2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      8.5,
+      8.5
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    -1
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": "dirt",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      -3.0
+     ],
+     "to": [
+      5.8,
+      -3.0
+     ],
+     "spacing": 5.9
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      3.0
+     ],
+     "to": [
+      5.8,
+      3.0
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -5.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      7.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -5.0,
+      6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      5.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -1.0,
+      6.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      -8.6,
+      8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -3,
+    0
+   ],
+   "ground": "grass",
+   "props": [
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -5.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -7.0,
+      2.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      0.0,
+      3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.0,
+      -8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.0,
+      -2.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      -3.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      7.0,
+      -6.0
+     ],
+     "rot": 0,
+     "sit": true
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 18
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "count": 5
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    0
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      9.3
+     ],
+     "to": [
+      9.3,
+      9.3
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      -9.3
+     ],
+     "to": [
+      9.3,
+      -9.3
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb"
+     },
+     "from": [
+      -9.3,
+      -9.3
+     ],
+     "to": [
+      -9.3,
+      9.3
+     ],
+     "spacing": 1.0
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:chapel",
+     "pos": [
+      -2.0,
+      0.0
+     ],
+     "rot": -90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      5.5,
+      2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      5.5,
+      -2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      6.5,
+      5.5
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      6.5,
+      -5.5
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -6.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      2.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -6.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      8.5,
+      8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "pos": [
+      8.5,
+      -8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    0
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      -4,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.3,
+      2.5
+     ],
+     "to": [
+      -9.3,
+      9.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_b",
+     "pos": [
+      6.65,
+      -5.0
+     ],
+     "rot": 90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      6.5,
+      6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      4.0,
+      3.5
+     ]
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -6.0,
+      -2.8
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      -8.5,
+      -8.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      -6.0,
+      6.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.4,
+      1.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      2.6,
+      -7.5
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -3.5,
+      8.2
+     ],
+     "scale": 2.2
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ],
+   "populate": [
+    {
+     "set": [
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/market_woman.glb"
+     ],
+     "count": 2,
+     "vary": true,
+     "behaviour": "wander",
+     "radius": 5,
+     "speed": 1.2
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    0
+   ],
+   "ground": "cobble",
+   "landmark": {
+    "url": "MASON:town_hall",
+    "pos": [
+     0,
+     0
+    ],
+    "rot": 180,
+    "collider": "mesh_exact"
+   },
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Well_1.glb",
+     "pos": [
+      7.5,
+      7.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -3.5,
+      7.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      4.5,
+      7.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_fantasy/Stall_Empty.glb",
+     "pos": [
+      -7.5,
+      7.5
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      5.6
+     ]
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -8.2,
+      0.0
+     ],
+     "rot": 90,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      -6.0,
+      -7.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      6.0,
+      -7.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Table_Large.glb",
+     "pos": [
+      2.0,
+      -1.0
+     ],
+     "rot": 180
+    },
+    {
+     "url": "props/mega_fantasy/Chair_1.glb",
+     "pos": [
+      3.3,
+      -1.0
+     ],
+     "rot": 270
+    },
+    {
+     "url": "props/mega_fantasy/Bookcase_2.glb",
+     "pos": [
+      -1.2,
+      -3.4
+     ],
+     "rot": 0
+    }
+   ],
+   "npc": {
+    "id": "steward",
+    "name": "Steward Aldric",
+    "pos": [
+     4.0,
+     7.5
+    ],
+    "model": "/cloud-mjvfxf53deudzlkx4zre/models/steward.glb",
+    "persona": "Aldric, the steward of Ashford Green's town hall. Proud of the new council chamber upstairs. Warm, a little pompous, two short sentences max.",
+    "lines": [
+     "Steward Aldric: Welcome to Ashford Green, traveller."
+    ]
+   }
+  },
+  {
+   "cell": [
+    1,
+    0
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      4,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      3.0,
+      -9.3
+     ],
+     "to": [
+      9.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_c",
+     "pos": [
+      -6.15,
+      -5.5
+     ],
+     "rot": -90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -7.5,
+      8.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -6.0,
+      4.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      8.0,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      6.0,
+      3.0
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      -2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -2.6,
+      -8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      8.5,
+      8.5
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    0
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      -4,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -9.0
+     ],
+     "to": [
+      9.3,
+      8.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      1.0,
+      -9.3
+     ],
+     "to": [
+      9.0,
+      -9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_c",
+     "pos": [
+      -5.0,
+      -6.15
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mega_fantasy/Anvil.glb",
+     "pos": [
+      2.8,
+      -2.4
+     ],
+     "rot": 0,
+     "sound": "campfire"
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      4.8,
+      -3.2
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      6.5,
+      4.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      5.2,
+      -8.3
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      6.5,
+      -7.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      7.8,
+      -6.3
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      2.0,
+      6.5
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.5,
+      2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -6.0,
+      5.0
+     ]
+    }
+   ],
+   "npc": {
+    "id": "blacksmith",
+    "name": "Marta the Smith",
+    "pos": [
+     1.5,
+     -1.0
+    ],
+    "model": "/cloud-mjvfxf53deudzlkx4zre/models/blacksmith.glb",
+    "persona": "Marta, the blacksmith of Ashford Green, working an open-air forge at the end of Forge Lane. Blunt, good-humoured, proud of her hinges on the town hall doors. Two short sentences max.",
+    "lines": [
+     "Marta the Smith: Mind the anvil, it's hotter than it looks."
+    ]
+   },
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "count": 6
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    0
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      9.3
+     ],
+     "to": [
+      5.8,
+      9.3
+     ],
+     "spacing": 5.9
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -5.0
+     ],
+     "to": [
+      9.3,
+      6.8
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_farmbuild/SmallBarn.glb",
+     "pos": [
+      4.0,
+      -4.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      -5.0,
+      5.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      7.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -2.0,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.0,
+      0.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      0.0,
+      -8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      8.3,
+      1.5
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "count": 8
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "cell": [
+    -3,
+    1
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb"
+     },
+     "from": [
+      9.3,
+      -9.5
+     ],
+     "to": [
+      9.3,
+      -3.0
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb"
+     },
+     "from": [
+      9.3,
+      3.0
+     ],
+     "to": [
+      9.3,
+      9.5
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      4.0
+     ],
+     "to": [
+      7.0,
+      4.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      6.5
+     ],
+     "to": [
+      7.0,
+      6.5
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      9.0
+     ],
+     "to": [
+      7.0,
+      9.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_farmbuild/OpenBarn.glb",
+     "pos": [
+      -5.0,
+      -6.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      8.0,
+      -2.8
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      8.0,
+      2.8
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      3.0,
+      -6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.6,
+      -9.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -8.6,
+      -2.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      1.5,
+      -8.0
+     ],
+     "rot": 90
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    1
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      2.5,
+      -9.3
+     ],
+     "to": [
+      8.7,
+      -9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -8.0
+     ],
+     "to": [
+      9.3,
+      -4.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_a",
+     "pos": [
+      -5.5,
+      -6.4
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "MASON:house_d",
+     "pos": [
+      -3.0,
+      7.4
+     ],
+     "rot": 0,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.0,
+      -2.6
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      -6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      3.2,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      6.0,
+      6.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -7.0,
+      2.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -8.2,
+      2.7
+     ]
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      5.5,
+      2.6
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      8.8,
+      -8.8
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    1
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      -4
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      4
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -9.0,
+      9.3
+     ],
+     "to": [
+      -3.0,
+      9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_b",
+     "pos": [
+      6.0,
+      -6.65
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "MASON:house_c",
+     "pos": [
+      -6.15,
+      -6.0
+     ],
+     "rot": -90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      2.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -6.0,
+      3.2
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      6.5,
+      6.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      9.0,
+      -2.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      2.3,
+      -2.9
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      -8.5,
+      8.5
+     ]
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "pos": [
+      -3.5,
+      8.5
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    1
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      4
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mega_fantasy/Stall_Empty.glb",
+     "pos": [
+      -6.5,
+      -3.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      6.5,
+      -3.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Canopy_Full.glb",
+     "pos": [
+      -6.5,
+      4.0
+     ],
+     "scale": 1.6
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      5.0,
+      -5.3
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -4.6,
+      -5.4
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -8.6,
+      6.2
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -3.0,
+      5.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      3.0,
+      5.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      7.0,
+      5.5
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -7.0,
+      8.6
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      7.5,
+      8.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.8,
+      -7.5
+     ]
+    }
+   ],
+   "populate": [
+    {
+     "set": [
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/market_woman.glb"
+     ],
+     "count": 4,
+     "vary": true,
+     "behaviour": "wander",
+     "radius": 6,
+     "speed": 1.2
+    }
+   ],
+   "npc": {
+    "id": "greta",
+    "name": "Greta",
+    "pos": [
+     -4.8,
+     -3.0
+    ],
+    "model": "/cloud-mjvfxf53deudzlkx4zre/models/market_woman.glb",
+    "persona": "Greta, a cheerful market woman selling apples and bread on the plaza of Ashford Green. Chatty and kind, always trying to sell you something. Two short sentences max.",
+    "lines": [
+     "Greta: Apples fresh from the orchard, traveller - two for a copper!"
+    ]
+   }
+  },
+  {
+   "cell": [
+    1,
+    1
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      -4
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      4
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      3.0
+     ],
+     "to": [
+      9.3,
+      9.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_d",
+     "pos": [
+      -5.5,
+      7.4
+     ],
+     "rot": 0,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "MASON:house_c",
+     "pos": [
+      6.0,
+      -6.15
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.6,
+      -2.6
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -6.0,
+      -2.8
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      6.5,
+      6.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.5,
+      8.8
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      9.0,
+      -2.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      -8.8,
+      -8.8
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ],
+   "populate": [
+    {
+     "set": [
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/villager_man.glb",
+      "/cloud-mjvfxf53deudzlkx4zre/models/market_woman.glb"
+     ],
+     "count": 2,
+     "vary": true,
+     "behaviour": "wander",
+     "radius": 5,
+     "speed": 1.2
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    1
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:tavern",
+     "pos": [
+      0.0,
+      -7.4
+     ],
+     "rot": 180,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "MASON:house_a",
+     "pos": [
+      5.0,
+      6.4
+     ],
+     "rot": 0,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      5.0,
+      -2.6
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      -2.5,
+      -2.6
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -6.0,
+      6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -6.0,
+      3.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -4.6,
+      -2.7
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -5.6,
+      -2.7
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      7.2,
+      -3.0
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.6,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -0.8,
+      8.6
+     ]
+    }
+   ],
+   "chest": {
+    "pos": [
+     2.8,
+     -8.4
+    ],
+    "contents": [
+     "potion"
+    ],
+    "gold": 20
+   },
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 8
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    1
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       4.0,
+       0.06,
+       3.5
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0
+     ],
+     "to": [
+      8,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb"
+     },
+     "from": [
+      -9.3,
+      -9.5
+     ],
+     "to": [
+      -9.3,
+      -3.0
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb"
+     },
+     "from": [
+      -9.3,
+      3.0
+     ],
+     "to": [
+      -9.3,
+      9.5
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -5.0,
+      -3.0
+     ],
+     "to": [
+      8.0,
+      -3.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_farmbuild/SmallBarn.glb",
+     "pos": [
+      5.0,
+      6.0
+     ],
+     "rot": 180
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -8.0,
+      -2.8
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -8.0,
+      2.8
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -4.0,
+      -6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      1.0,
+      -7.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      6.0,
+      -5.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      -4.0,
+      5.5
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      8.6,
+      -2.8
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    -3,
+    2
+   ],
+   "ground": "grass",
+   "rings": [
+    {
+     "part": {
+      "shape": "column",
+      "radius": 0.12,
+      "height": 1.0,
+      "material": "timber"
+     },
+     "half": [
+      7.0,
+      6.0
+     ],
+     "spacing": 1.4
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      3.0,
+      0.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -4.0,
+      -3.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -3.0,
+      3.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      5.5,
+      -4.0
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      8.6,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      0.0,
+      8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 22
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      9.3
+     ],
+     "to": [
+      -2.0,
+      9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      2.0,
+      9.3
+     ],
+     "to": [
+      8.0,
+      9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -6.0,
+      -3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      0.5,
+      -5.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      -4.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -5.0,
+      4.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      3.0,
+      5.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      7.0,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      0.0,
+      1.0
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.6,
+      -8.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      -8.6,
+      -8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 16
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 14
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -7.5,
+      -8
+     ],
+     "to": [
+      -7.5,
+      8
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -5.0,
+      -8
+     ],
+     "to": [
+      -5.0,
+      8
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      -2.6,
+      -8.0
+     ],
+     "to": [
+      -2.6,
+      8.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      5.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      5.5,
+      0.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      5.0,
+      6.5
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      8.6,
+      -3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      3.5,
+      8.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      -8.0
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      3.5,
+      -8.6
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      8.6,
+      3.5
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    2
+   ],
+   "ground": "cobble",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -8.0
+     ],
+     "to": [
+      9.3,
+      8.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "MASON:house_b",
+     "pos": [
+      -6.65,
+      3.0
+     ],
+     "rot": -90,
+     "collider": "mesh_exact"
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      6.5,
+      3.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      5.5,
+      7.5
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      -4.0
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.5,
+      6.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.8,
+      -4.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      8.8,
+      8.8
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.5,
+      -1.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -6.0,
+      -5.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    },
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      3.0,
+      -3.0
+     ],
+     "to": [
+      9.0,
+      -3.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      3.0,
+      9.3
+     ],
+     "to": [
+      9.0,
+      9.3
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
+      "rot": 90
+     },
+     "from": [
+      9.3,
+      -3.0
+     ],
+     "to": [
+      9.3,
+      9.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      -4.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      -6.0,
+      3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      -4.0,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      -8.5,
+      -1.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      6.0,
+      -1.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      7.0,
+      6.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      5.0,
+      3.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      8.5,
+      -6.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.5,
+      -6.5
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      6.0,
+      -7.5
+     ],
+     "scale": 2.2
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    2
+   ],
+   "ground": "dirt",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      3.0
+     ],
+     "to": [
+      8,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      6.0
+     ],
+     "to": [
+      8,
+      6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      0.5
+     ],
+     "to": [
+      8.0,
+      0.5
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.0,
+      9.3
+     ],
+     "to": [
+      8.0,
+      9.3
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      0.0,
+      -6.0
+     ],
+     "rot": 90
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      4.0,
+      -8.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/mega_fantasy/Bench.glb",
+     "pos": [
+      0.0,
+      -2.6
+     ],
+     "rot": 0,
+     "sit": true
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      8.6,
+      -2.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.6,
+      -2.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Grass.glb",
+     "count": 14
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    2
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -8,
+      -2.0
+     ],
+     "to": [
+      8,
+      -2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -8,
+      2.0
+     ],
+     "to": [
+      8,
+      2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -8,
+      6.0
+     ],
+     "to": [
+      8,
+      6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      9.3
+     ],
+     "to": [
+      5.8,
+      9.3
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      8.0,
+      8.6
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -7.4,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 16
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "cell": [
+    -3,
+    3
+   ],
+   "ground": "grass",
+   "props": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.0,
+      -3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -7.0,
+      1.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      2.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_4.glb",
+     "pos": [
+      -3.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.0,
+      1.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.0,
+      -2.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      4.0,
+      -8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "count": 25
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "count": 10
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    }
+   ]
+  },
+  {
+   "cell": [
+    -2,
+    3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      -3.0
+     ],
+     "to": [
+      8,
+      -3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      0.0
+     ],
+     "to": [
+      8,
+      0.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      3.0
+     ],
+     "to": [
+      8,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      -9.3
+     ],
+     "to": [
+      5.8,
+      -9.3
+     ],
+     "spacing": 5.9
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      6.0
+     ],
+     "to": [
+      5.8,
+      6.0
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      -6.0,
+      8.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      0.0,
+      8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      3.0,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.5,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Wheat.glb",
+     "count": 40,
+     "collider": "none"
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    -1,
+    3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": "dirt",
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      0
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -8,
+      -6.0
+     ],
+     "to": [
+      8,
+      -6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -8,
+      -2.0
+     ],
+     "to": [
+      8,
+      -2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_1.glb"
+     },
+     "from": [
+      -8,
+      2.0
+     ],
+     "to": [
+      8,
+      2.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_unature/CommonTree_3.glb"
+     },
+     "from": [
+      -8,
+      6.0
+     ],
+     "to": [
+      8,
+      6.0
+     ],
+     "spacing": 4.0,
+     "jitter": 0.4
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -6.0,
+      9.3
+     ],
+     "to": [
+      5.8,
+      9.3
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "pos": [
+      8.0,
+      8.6
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      -7.4,
+      8.6
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_2.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 16
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/BushBerries_1.glb",
+     "count": 6
+    }
+   ]
+  },
+  {
+   "cell": [
+    0,
+    3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": {
+       "color": [
+        0.42,
+        0.41,
+        0.43
+       ],
+       "rough": 0.8,
+       "bump": 0.65,
+       "tile": 1.2
+      },
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      8
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb",
+      "rot": 90
+     },
+     "from": [
+      -9.5,
+      -9.3
+     ],
+     "to": [
+      -3.0,
+      -9.3
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/mod_village/Stone_Wall_1.glb",
+      "rot": 90
+     },
+     "from": [
+      3.0,
+      -9.3
+     ],
+     "to": [
+      9.5,
+      -9.3
+     ],
+     "spacing": 1.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      3.0
+     ],
+     "to": [
+      -3.0,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8.5,
+      6.0
+     ],
+     "to": [
+      -3.0,
+      6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      3.0,
+      3.0
+     ],
+     "to": [
+      8.5,
+      3.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      3.0,
+      6.0
+     ],
+     "to": [
+      8.5,
+      6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      -8.5,
+      1.0
+     ],
+     "to": [
+      -3.0,
+      1.0
+     ],
+     "spacing": 2.06
+    },
+    {
+     "part": {
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
+     },
+     "from": [
+      3.0,
+      1.0
+     ],
+     "to": [
+      8.5,
+      1.0
+     ],
+     "spacing": 2.06
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      -2.8,
+      -8.0
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mod_village/Prop_Lamp_Street.glb",
+     "pos": [
+      2.8,
+      -8.0
+     ],
+     "scale": 2.0
+    },
+    {
+     "url": "props/mega_medieval/Prop_Wagon.glb",
+     "pos": [
+      -6.0,
+      -5.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -7.0,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.0,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.5,
+      -6.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -8.5,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      7.0,
+      -3.0
+     ]
+    }
+   ],
+   "npc": {
+    "id": "guard",
+    "name": "Town Guard",
+    "pos": [
+     2.8,
+     -6.0
+    ],
+    "model": "/cloud-mjvfxf53deudzlkx4zre/models/guard.glb",
+    "persona": "A town guard at the south gate of Ashford Green, a peaceful farming town. Bored but polite, gives directions. Two short sentences max.",
+    "lines": [
+     "Town Guard: Welcome to Ashford Green. The plaza and the town hall are straight up the road."
+    ]
+   },
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 18
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 10
+    }
+   ]
+  },
+  {
+   "cell": [
+    1,
+    3
+   ],
+   "ground": "grass",
+   "rows": [
+    {
+     "part": {
+      "shape": "box",
+      "size": [
+       3.5,
+       0.06,
+       4.0
+      ],
+      "material": "dirt",
+      "collider": "none"
+     },
+     "from": [
+      0,
+      -8
+     ],
+     "to": [
+      0,
+      -4
+     ],
+     "spacing": 4.0
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      6.0
+     ],
+     "to": [
+      -1,
+      6.0
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_unature/Wheat.glb",
+      "collider": "none"
+     },
+     "from": [
+      -8,
+      8.6
+     ],
+     "to": [
+      -1,
+      8.6
+     ],
+     "spacing": 0.9,
+     "jitter": 0.15
+    },
+    {
+     "part": {
+      "url": "props/q_farmbuild/Fence.glb"
+     },
+     "from": [
+      -8.5,
+      4.0
+     ],
+     "to": [
+      3.3,
+      4.0
+     ],
+     "spacing": 5.9
+    }
+   ],
+   "props": [
+    {
+     "url": "props/q_farmbuild/Windmill.glb",
+     "pos": [
+      0.0,
+      3.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      5.0,
+      -6.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      6.5,
+      -8.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      5.0,
+      1.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Crate_1.glb",
+     "pos": [
+      6.2,
+      1.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      5.6,
+      2.2
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      -7.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      8.6,
+      8.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.6,
+      0.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/Wheat.glb",
+     "count": 30,
+     "collider": "none"
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 16
+    }
+   ]
+  },
+  {
+   "cell": [
+    2,
+    3
+   ],
+   "ground": "grass",
+   "rings": [
+    {
+     "part": {
+      "shape": "column",
+      "radius": 0.12,
+      "height": 1.0,
+      "material": "timber"
+     },
+     "half": [
+      7.0,
+      6.0
+     ],
+     "spacing": 1.4
+    }
+   ],
+   "props": [
+    {
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
+     "pos": [
+      3.0,
+      0.0
+     ],
+     "rot": 0
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -4.0,
+      -3.0
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Hay_1.glb",
+     "pos": [
+      -3.0,
+      3.5
+     ]
+    },
+    {
+     "url": "props/mod_village/Prop_Barrel_1.glb",
+     "pos": [
+      5.5,
+      -4.0
+     ]
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "pos": [
+      -8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/BirchTree_2.glb",
+     "pos": [
+      8.6,
+      8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      8.6,
+      -8.6
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      -8.6,
+      8.6
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_2.glb",
+     "pos": [
+      0.0,
+      8.6
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 22
+    },
+    {
+     "url": "props/q_unature/Flowers.glb",
+     "count": 12
+    }
+   ]
+  },
+  {
+   "cell": [
+    3,
+    3
+   ],
+   "ground": "grass",
+   "props": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -6.0,
+      -6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      2.0,
+      -7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      7.0,
+      -3.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      -7.0,
+      1.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/CommonTree_1.glb",
+     "pos": [
+      0.0,
+      2.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "pos": [
+      6.0,
+      6.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/PineTree_4.glb",
+     "pos": [
+      -3.0,
+      7.0
+     ],
+     "scale": 2.2
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "pos": [
+      8.0,
+      1.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Rock_3.glb",
+     "pos": [
+      -8.0,
+      -2.0
+     ]
+    },
+    {
+     "url": "props/q_unature/Bush_1.glb",
+     "pos": [
+      4.0,
+      -8.0
+     ]
+    }
+   ],
+   "scatter": [
+    {
+     "url": "props/q_unature/PineTree_2.glb",
+     "count": 25
+    },
+    {
+     "url": "props/q_unature/CommonTree_3.glb",
+     "count": 12
+    },
+    {
+     "url": "props/q_unature/Rock_Moss_1.glb",
+     "count": 10
+    },
+    {
+     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "count": 20
+    }
+   ]
+  }
+ ]
+}

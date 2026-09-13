@@ -29,6 +29,9 @@ def ensure_pp():
         subprocess.run("npm init -y >/dev/null && npm i --silent @gltf-transform/core @gltf-transform/functions @gltf-transform/extensions",
                        shell=True, cwd=PP_DIR, check=True)
     shutil.copyfile(f"{ROOT}/tools/pp.mjs", f"{PP_DIR}/pp.mjs")
+    if not os.path.isdir(f"{ROOT}/tools/tex"):
+        subprocess.run(["python3", f"{ROOT}/tools/make_textures.py"], check=True)
+    shutil.copytree(f"{ROOT}/tools/tex", f"{PP_DIR}/tex", dirs_exist_ok=True)
     return f"{PP_DIR}/pp.mjs"
 
 
@@ -42,17 +45,19 @@ def compile_structures(spec_path):
     if r.returncode != 0:
         sys.exit("mason walk gate failed")
     recs = [json.loads(l) for l in open(f"{OUT}/mason_assets.jsonl")]
-    os.makedirs(f"{ROOT}/models", exist_ok=True)
+    # streamed at runtime over HTTP (never packed): keep them out of Godot's import scan
+    os.makedirs(f"{ROOT}/models/town", exist_ok=True)
+    open(f"{ROOT}/models/town/.gdignore", "a").close()
     done = {}
     for rec in recs:
         h = rec["hash"]
         if h not in done:
             src = f"{OUT}/{h}.lod0.glb"
-            dst = f"{ROOT}/models/{rec['id']}.glb"
+            dst = f"{ROOT}/models/town/{rec['id']}.glb"
             subprocess.run(["node", pp, src, dst], check=True, cwd=PP_DIR)
             done[h] = rec["id"]
         elif rec["id"] != done[h]:
-            shutil.copyfile(f"{ROOT}/models/{done[h]}.glb", f"{ROOT}/models/{rec['id']}.glb")
+            shutil.copyfile(f"{ROOT}/models/town/{done[h]}.glb", f"{ROOT}/models/town/{rec['id']}.glb")
     return recs
 
 
@@ -89,7 +94,7 @@ def wire(world, specs, cell_size):
             tid = u[6:]
             if tid not in by_id:
                 sys.exit(f"unknown MASON type {tid} in cell {c['cell']}")
-            e["url"] = f"/{BUILD_ID}/models/{tid}.glb"
+            e["url"] = f"/{BUILD_ID}/models/town/{tid}.glb"
             e["collider"] = "mesh_exact"
             px, pz = (e.get("pos") or [0, 0])[:2]
             rot = float(e.get("rot", 0.0))
@@ -102,8 +107,10 @@ def wire(world, specs, cell_size):
             continue
         off, w, h = d
         depth = float(sp["footprint"][1])
-        # door centre in Godot space at rot 0: (off, -depth/2) -- front face is -Z
-        dx, dz = rot_xz(off, -depth / 2.0, p["rot"])
+        wall_t = float(sp.get("wall_t", 0.35))
+        # door centre in Godot space at rot 0: (off, -depth/2) -- the front face is -Z; the 0.22 m leaf
+        # hangs at mid-wall so it sits INSIDE the opening's reveal instead of half proud of the facade
+        dx, dz = rot_xz(off, -(depth / 2.0 - wall_t / 2.0), p["rot"])
         wx, wz = p["world"][0] + dx, p["world"][1] + dz
         ldx, ldz = rot_xz(1.0, 0.0, p["rot"])          # the leaf runs along the wall (+X local)
         hx, hz = wx - DOOR_LEAF_HALF * ldx, wz - DOOR_LEAF_HALF * ldz
@@ -119,7 +126,46 @@ def wire(world, specs, cell_size):
             "pos": [round(hx - ccx, 3), round(hz - ccz, 3)],
             "facing": p["rot"], "label": label})
         p["door_world"] = [round(wx, 2), round(wz, 2)]
+    # BALUSTRADE along each stair flight's open edge: a thin timber wall from the floor up through the
+    # stairwell cutout (guards the upper-floor opening too). The engine's step-up probe reads the floor
+    # 0.6 m ahead of the player's CENTRE, so a player straddling the flight's edge would wedge on the
+    # riser corner; the wall keeps them on the treads.
+    for p in placed:
+        sp = by_id[p["type"]]
+        st = (sp.get("interior") or {}).get("stair") if isinstance(sp.get("interior"), dict) else None
+        if not st:
+            continue
+        sw, run = float(st["width"]), float(st["run"])
+        ex = float(st["cx"]) - sw / 2.0 - 0.07             # open (room-side) edge, model +X = wall side
+        cz = -float(st.get("cy", 0.0))                     # model +Y (front) -> Godot -Z
+        lx, lz = rot_xz(ex, cz, p["rot"])
+        wx, wz = p["world"][0] + lx, p["world"][1] + lz
+        cgx, cgz = math.floor(wx / cell_size), math.floor(wz / cell_size)
+        cell = cells.get((cgx, cgz))
+        if cell is None:
+            continue
+        ccx, ccz = cgx * cell_size + half, cgz * cell_size + half
+        cell.setdefault("rows", []).append({
+            "part": {"shape": "box", "size": [0.12, 4.6, round(run + 0.3, 2)], "material": "timber",
+                     "collider": "box", "rot": p["rot"]},
+            "from": [round(wx - ccx, 3), round(wz - ccz, 3)], "to": [round(wx - ccx, 3), round(wz - ccz, 3)], "spacing": 1})
     return placed
+
+
+def rewrite_meshy_paths(node):
+    """/<build>/models/<name>.glb -> /<build>/models/meshy/<name>.glb when the character lives in the
+    gdignored models/meshy/ folder (streamed, never packed into index.pck)."""
+    if isinstance(node, dict):
+        for k, v in node.items():
+            node[k] = rewrite_meshy_paths(v)
+        return node
+    if isinstance(node, list):
+        return [rewrite_meshy_paths(v) for v in node]
+    if isinstance(node, str) and node.startswith("/") and "/models/" in node and node.endswith(".glb"):
+        name = node.rsplit("/", 1)[1]
+        if os.path.exists(f"{ROOT}/models/meshy/{name}") and "/models/meshy/" not in node:
+            return f"/{BUILD_ID}/models/meshy/{name}"
+    return node
 
 
 def main():
@@ -131,8 +177,16 @@ def main():
     gameplay = load(f"{ROOT}/tools/gameplay.json")
     cell_size = float(world.get("grid", {}).get("cell_size", 16))
     placed = wire(world, specs, cell_size)
+    world = rewrite_meshy_paths(world)
     for k, v in gameplay.items():
         world[k] = v
+    # USE on a door fires `interact` BEFORE the engine's own handler; opening it from a rule means the
+    # handler finds it already open and skips its "The door swings open." dialogue panel (Game-Feel P1-2)
+    for c in world["cells"]:
+        for d in c.get("doors", []):
+            world.setdefault("rules", []).append({
+                "id": "quiet_" + d["id"], "when": {"event": "interact", "target": d["id"]},
+                "then": [{"open_door": d["id"]}]})
     with open(f"{ROOT}/world.json", "w") as f:
         json.dump(world, f, indent=1)
     with open(f"{ROOT}/tools/placements.json", "w") as f:
