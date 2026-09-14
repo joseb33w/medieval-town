@@ -1,7 +1,24 @@
 {
   "sky": {
-    "time": "day",
-    "weather": "cloudy"
+    "cycle": [
+      {
+        "time": "sunrise",
+        "weather": "clear"
+      },
+      {
+        "time": "day",
+        "weather": "cloudy"
+      },
+      {
+        "time": "sunset",
+        "weather": "clear"
+      },
+      {
+        "time": "night",
+        "weather": "clear"
+      }
+    ],
+    "loop": true
   },
   "character_source": "meshy",
   "director": {
