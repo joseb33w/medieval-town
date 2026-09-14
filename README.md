@@ -32,13 +32,26 @@ into the Gogi player and also runs in any phone browser (Compatibility renderer,
 
 ## Rebuilding
 
+`world.json` is generated — after editing `tools/gameplay.json` (sky, rules, director) or
+`tools/world_layout.json` (placements) it must be regenerated, or the deployed game keeps the old data:
+
 ```bash
-curl -sfL https://preview.myapping.com/mason/run.sh -o /tmp/run.sh && bash /tmp/run.sh install
-python3 tools/build_town.py            # compile buildings + regenerate world.json
+BUILD_ID=<this build's id> python3 tools/build_town.py --wire   # regenerate world.json only (buildings already compiled)
 godot --headless --path . --import
 godot --headless --path . --export-release "Web" out/index.html
 cp world.json quests.json out/ && cp -R models audio out/
 ```
+
+To recompile the buildings as well (after a `structures.json` change):
+
+```bash
+curl -sfL https://preview.myapping.com/mason/run.sh -o /tmp/run.sh && bash /tmp/run.sh install
+BUILD_ID=<this build's id> python3 tools/build_town.py            # compile buildings + regenerate world.json
+```
+
+The wiring step gives every building record a `footprint` (the engine textures the `body_/roof_/trim_`
+solids with its GSurf surfaces and draws the buildings across the far ring) and every front doorway a
+hinged `doors[]` leaf sized to the opening (`w`/`h`), hinge half a doorway from the opening's centre.
 
 Controls: left half of the screen = move joystick, right half = drag to look, USE to open doors and talk.
 Keyboard: WASD / arrows, E for USE, Space to jump.

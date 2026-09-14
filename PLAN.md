@@ -10,10 +10,16 @@ continue), then rebuild the data against the current engine and re-export.
   `interaction`, `main`, `surfaces`. Template-owned, untouched by hand.
 - `tools/build_town.py` — adapt the door wiring to the synced engine: door leaves are now sized from
   the `doors[]` entry (`w`/`h`), the hinge sits half a doorway from the door centre, placement records
-  carry `footprint` (engine applies the Mason GSurf materials + far-ring skyline), and the
+  carry `footprint` (engine applies the Mason GSurf materials + far-ring skyline) plus `openings: []` +
+  `interior`/`floors`/`floor_height` (engine room lights, no duplicate leaf — QA P1-2), and the
   `quiet_door_*` rules are dropped (hinged doors now toggle, so a rule that pre-opens the door would
   make the engine handler shut it again).
-- `tools/gameplay.json` — explicit `seconds` per sky-cycle segment (day-dominant loop).
+- `tools/gameplay.json` — explicit `seconds` per sky-cycle segment (day-dominant loop, starts at day);
+  `hall_porch` zone + `hall_door_porch` rule (the hall door opens as the visitor arrives — Game-Feel P1-1
+  mitigation); title backdrop opaque.
+- `tools/world_layout.json` — 11 near-identical library prop variants consolidated (49 -> 37 distinct GLBs,
+  QA P1-1 streaming hitch); house_b in cell [-1,1] nudged 0.2 m so its door stays inside the engine clamp.
+- `quests.json` — step 2 wording (the door no longer has to be opened by hand).
 - `world.json`, `tools/placements.json` — regenerated (`python3 tools/build_town.py --wire`; the
   compiled Mason GLBs in `models/town/` are unchanged, so no recompile).
 - `docs/qa_report.md`, `docs/gamefeel_report.md` — this build's specialist reports.

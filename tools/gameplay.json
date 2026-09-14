@@ -2,24 +2,24 @@
   "sky": {
     "cycle": [
       {
-        "time": "sunrise",
-        "weather": "clear",
-        "seconds": 25
-      },
-      {
         "time": "day",
-        "weather": "cloudy",
+        "weather": "clear",
         "seconds": 90
       },
       {
         "time": "sunset",
-        "weather": "clear",
+        "weather": "cloudy",
         "seconds": 25
       },
       {
         "time": "night",
         "weather": "clear",
-        "seconds": 60
+        "seconds": 40
+      },
+      {
+        "time": "sunrise",
+        "weather": "clear",
+        "seconds": 25
       }
     ],
     "loop": true
@@ -38,7 +38,7 @@
       "kicker": "A SMALL TOWN IN THE HILLS",
       "name": "Ashford\nGreen",
       "tagline": "Left side: joystick to move  |  Right side: drag to look  |  USE opens doors and talks",
-      "hint": "Walk the streets. Open the hall door. Climb to the council chamber.",
+      "hint": "Walk the streets. Step into the town hall. Climb to the council chamber.",
       "color": [
         0.96,
         0.88,
@@ -48,7 +48,7 @@
         0.05,
         0.06,
         0.05,
-        0.92
+        1.0
       ]
     },
     "modes": [
@@ -145,6 +145,19 @@
         2.4,
         8.0
       ]
+    },
+    {
+      "name": "hall_porch",
+      "center": [
+        10,
+        1.0,
+        18.0
+      ],
+      "size": [
+        8.0,
+        3.0,
+        5.0
+      ]
     }
   ],
   "vars": {
@@ -222,6 +235,18 @@
         }
       ],
       "once": true
+    },
+    {
+      "id": "hall_door_porch",
+      "when": {
+        "event": "enter_zone",
+        "target": "hall_porch"
+      },
+      "then": [
+        {
+          "open_door": "door_town_hall_0_0_0"
+        }
+      ]
     }
   ],
   "hud": []

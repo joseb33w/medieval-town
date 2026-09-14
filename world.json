@@ -21,24 +21,24 @@
  "sky": {
   "cycle": [
    {
-    "time": "sunrise",
-    "weather": "clear",
-    "seconds": 25
-   },
-   {
     "time": "day",
-    "weather": "cloudy",
+    "weather": "clear",
     "seconds": 90
    },
    {
     "time": "sunset",
-    "weather": "clear",
+    "weather": "cloudy",
     "seconds": 25
    },
    {
     "time": "night",
     "weather": "clear",
-    "seconds": 60
+    "seconds": 40
+   },
+   {
+    "time": "sunrise",
+    "weather": "clear",
+    "seconds": 25
    }
   ],
   "loop": true
@@ -105,7 +105,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/PineTree_4.glb",
+     "url": "props/q_unature/PineTree_2.glb",
      "pos": [
       -3.0,
       7.0
@@ -120,7 +120,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.0,
       -2.0
@@ -140,7 +140,7 @@
      "count": 25
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "count": 12
     },
     {
@@ -148,7 +148,7 @@
      "count": 10
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     }
    ]
@@ -226,7 +226,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -236,11 +236,11 @@
       5.8,
       -9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -250,7 +250,7 @@
       5.8,
       6.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -293,7 +293,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       -8.6
@@ -307,7 +307,7 @@
      "collider": "none"
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 12
     }
    ]
@@ -336,7 +336,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -8,
@@ -366,7 +366,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -8,
@@ -381,7 +381,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -391,12 +391,12 @@
       5.8,
       9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       8.0,
       8.6
@@ -425,7 +425,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -434,7 +434,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 16
     },
     {
@@ -442,7 +442,7 @@
      "count": 12
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "count": 6
     }
    ]
@@ -611,7 +611,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.5,
       7.0
@@ -635,7 +635,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     },
     {
@@ -696,7 +696,7 @@
      ]
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -727,7 +727,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       0.0,
       8.6
@@ -736,7 +736,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 22
     },
     {
@@ -818,7 +818,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -828,11 +828,11 @@
       5.8,
       -9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -842,7 +842,7 @@
       5.8,
       6.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -885,7 +885,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       -8.6
@@ -899,7 +899,7 @@
      "collider": "none"
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 12
     }
    ]
@@ -960,7 +960,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/PineTree_4.glb",
+     "url": "props/q_unature/PineTree_2.glb",
      "pos": [
       -3.0,
       7.0
@@ -975,7 +975,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.0,
       -2.0
@@ -995,7 +995,7 @@
      "count": 25
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "count": 12
     },
     {
@@ -1003,7 +1003,7 @@
      "count": 10
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     }
    ]
@@ -1077,7 +1077,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -1087,12 +1087,12 @@
       5.8,
       9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       8.0,
       8.6
@@ -1121,7 +1121,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -1130,7 +1130,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 16
     },
     {
@@ -1138,7 +1138,7 @@
      "count": 12
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "count": 6
     }
    ]
@@ -1226,7 +1226,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       6.0,
       -6.0
@@ -1390,7 +1390,7 @@
    ],
    "props": [
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       -5.5,
       6.0
@@ -1442,7 +1442,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -1534,10 +1534,16 @@
      "footprint": [
       7.0,
       6.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       -5.5,
       -5.0
@@ -1698,7 +1704,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -7,
@@ -1758,7 +1764,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       -8.6,
       3.0
@@ -1918,7 +1924,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       6.0,
       3.0
@@ -1940,7 +1946,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.6,
       8.6
@@ -2038,7 +2044,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -2048,11 +2054,11 @@
       5.8,
       -9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -2062,7 +2068,7 @@
       5.8,
       6.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -2105,7 +2111,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       -8.6
@@ -2119,7 +2125,7 @@
      "collider": "none"
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 12
     }
    ]
@@ -2163,7 +2169,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/PineTree_4.glb",
+     "url": "props/q_unature/PineTree_2.glb",
      "pos": [
       -3.0,
       -7.5
@@ -2195,7 +2201,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       6.0,
       6.0
@@ -2209,7 +2215,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.0,
       8.0
@@ -2222,7 +2228,7 @@
      "count": 14
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     },
     {
@@ -2327,7 +2333,13 @@
      "footprint": [
       6.0,
       5.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 3.6
     },
     {
      "url": "props/mod_village/Prop_Cart_1_Hay.glb",
@@ -2382,7 +2394,7 @@
      ]
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.6,
       -8.6
@@ -2508,7 +2520,13 @@
      "footprint": [
       8.0,
       6.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
@@ -2521,7 +2539,13 @@
      "footprint": [
       7.0,
       6.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "props/mod_village/Prop_Cart_1_Hay.glb",
@@ -2532,7 +2556,7 @@
      "rot": 0
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       8.3,
       -8.3
@@ -2557,7 +2581,7 @@
      "scale": 2.0
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       7.5,
       7.5
@@ -2707,7 +2731,13 @@
      "footprint": [
       7.0,
       6.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
@@ -2720,7 +2750,13 @@
      "footprint": [
       6.0,
       5.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 3.6
     },
     {
      "url": "props/q_unature/CommonTree_1.glb",
@@ -2930,7 +2966,13 @@
      "footprint": [
       6.5,
       8.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "props/q_unature/BirchTree_2.glb",
@@ -3154,7 +3196,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       -6.0,
       6.0
@@ -3195,7 +3237,7 @@
      "scale": 2.0
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.5,
       8.5
@@ -3243,7 +3285,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -3253,11 +3295,11 @@
       5.8,
       -3.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -3267,7 +3309,7 @@
       5.8,
       3.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -3280,7 +3322,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       2.0,
       -7.0
@@ -3320,14 +3362,14 @@
      "rot": 90
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       8.6
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       -8.6,
       8.0
@@ -3336,7 +3378,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     },
     {
@@ -3400,7 +3442,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.0,
       -2.0
@@ -3425,7 +3467,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 18
     },
     {
@@ -3532,7 +3574,13 @@
      "footprint": [
       7.0,
       12.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 6.5
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -3608,7 +3656,7 @@
      ]
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.5,
       -8.0
@@ -3721,7 +3769,13 @@
      "footprint": [
       8.0,
       6.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "props/q_unature/CommonTree_1.glb",
@@ -3763,7 +3817,7 @@
      ]
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       -6.0,
       6.0
@@ -3849,7 +3903,13 @@
     "footprint": [
      12.0,
      9.0
-    ]
+    ],
+    "openings": [],
+    "interior": {
+     "floor_z": 0.06
+    },
+    "floors": 2,
+    "floor_height": 3.6
    },
    "props": [
     {
@@ -3900,7 +3960,7 @@
      "sit": true
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       -6.0,
       -7.5
@@ -3924,7 +3984,7 @@
      "rot": 180
     },
     {
-     "url": "props/mega_fantasy/Chair_1.glb",
+     "url": "props/mega_fantasy/Bench.glb",
      "pos": [
       3.3,
       -1.0
@@ -4085,7 +4145,13 @@
      "footprint": [
       6.0,
       5.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 3.6
     },
     {
      "url": "props/q_unature/CommonTree_1.glb",
@@ -4144,7 +4210,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.5,
       8.5
@@ -4254,7 +4320,13 @@
      "footprint": [
       6.0,
       5.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 3.6
     },
     {
      "url": "props/mega_fantasy/Anvil.glb",
@@ -4302,7 +4374,7 @@
      ]
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       2.0,
       6.5
@@ -4344,7 +4416,7 @@
      "count": 10
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "count": 6
     },
     {
@@ -4375,7 +4447,7 @@
    "rows": [
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -4385,11 +4457,11 @@
       5.8,
       9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb",
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb",
       "rot": 90
      },
      "from": [
@@ -4400,7 +4472,7 @@
       9.3,
       6.8
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -4413,7 +4485,7 @@
      "rot": 90
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       -5.0,
       5.0
@@ -4445,7 +4517,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.0,
       0.0
@@ -4475,11 +4547,11 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "count": 8
     },
     {
@@ -4628,7 +4700,7 @@
      "scale": 2.0
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       3.0,
       -6.5
@@ -4636,7 +4708,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -9.0
@@ -4650,7 +4722,7 @@
      ]
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       1.5,
       -8.0
@@ -4660,7 +4732,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     },
     {
@@ -4748,7 +4820,13 @@
      "footprint": [
       7.0,
       6.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_d.glb",
@@ -4761,7 +4839,13 @@
      "footprint": [
       6.5,
       8.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -4977,7 +5061,7 @@
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_b.glb",
      "pos": [
-      6.0,
+      5.8,
       -6.65
      ],
      "rot": 180,
@@ -4985,7 +5069,13 @@
      "footprint": [
       8.0,
       6.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
@@ -4998,7 +5088,13 @@
      "footprint": [
       6.0,
       5.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 3.6
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -5055,7 +5151,7 @@
      ]
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       -3.5,
       8.5
@@ -5076,7 +5172,7 @@
     {
      "id": "door_house_b_0_-1_1",
      "pos": [
-      9.15,
+      8.95,
       -3.6
      ],
      "facing": 180.0,
@@ -5175,7 +5271,7 @@
      "rot": 0
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       6.5,
       -3.5
@@ -5183,12 +5279,11 @@
      "rot": 0
     },
     {
-     "url": "props/mod_village/Canopy_Full.glb",
+     "url": "props/mega_fantasy/Stall_Empty.glb",
      "pos": [
       -6.5,
       4.0
-     ],
-     "scale": 1.6
+     ]
     },
     {
      "url": "props/mod_village/Prop_Barrel_1.glb",
@@ -5246,7 +5341,7 @@
      "sit": true
     },
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       7.5,
       8.0
@@ -5414,7 +5509,13 @@
      "footprint": [
       6.5,
       8.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
@@ -5427,7 +5528,13 @@
      "footprint": [
       6.0,
       5.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 1,
+     "floor_height": 3.6
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -5477,7 +5584,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       -8.8,
       -8.8
@@ -5605,7 +5712,13 @@
      "footprint": [
       10.0,
       8.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
@@ -5618,7 +5731,13 @@
      "footprint": [
       7.0,
       6.0
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -5857,7 +5976,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       6.0,
       -5.5
@@ -5881,7 +6000,7 @@
      "rot": 0
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       -2.8
@@ -5890,7 +6009,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     },
     {
@@ -5951,7 +6070,7 @@
      ]
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -5982,7 +6101,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       0.0,
       8.6
@@ -5991,7 +6110,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 22
     },
     {
@@ -6095,7 +6214,7 @@
      "sit": true
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.0,
       8.0
@@ -6278,7 +6397,7 @@
      "sit": true
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       3.5
@@ -6361,10 +6480,16 @@
      "footprint": [
       8.0,
       6.5
-     ]
+     ],
+     "openings": [],
+     "interior": {
+      "floor_z": 0.06
+     },
+     "floors": 2,
+     "floor_height": 3.4
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       6.0,
       -6.0
@@ -6412,7 +6537,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.8,
       8.8
@@ -6548,7 +6673,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       -6.0,
       3.0
@@ -6744,14 +6869,14 @@
      "sit": true
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       8.6,
       -2.0
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -2.0
@@ -6793,7 +6918,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -8,
@@ -6823,7 +6948,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -8,
@@ -6838,7 +6963,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -6848,12 +6973,12 @@
       5.8,
       9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       8.0,
       8.6
@@ -6882,7 +7007,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -6891,7 +7016,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 16
     },
     {
@@ -6899,7 +7024,7 @@
      "count": 12
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "count": 6
     }
    ]
@@ -6960,7 +7085,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/PineTree_4.glb",
+     "url": "props/q_unature/PineTree_2.glb",
      "pos": [
       -3.0,
       7.0
@@ -6975,7 +7100,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.0,
       -2.0
@@ -6995,7 +7120,7 @@
      "count": 25
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "count": 12
     },
     {
@@ -7003,7 +7128,7 @@
      "count": 10
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     }
    ]
@@ -7081,7 +7206,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -7091,11 +7216,11 @@
       5.8,
       -9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -7105,7 +7230,7 @@
       5.8,
       6.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -7148,7 +7273,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       8.6,
       -8.6
@@ -7162,7 +7287,7 @@
      "collider": "none"
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 12
     }
    ]
@@ -7212,7 +7337,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -8,
@@ -7242,7 +7367,7 @@
     },
     {
      "part": {
-      "url": "props/q_unature/CommonTree_3.glb"
+      "url": "props/q_unature/CommonTree_1.glb"
      },
      "from": [
       -8,
@@ -7257,7 +7382,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -6.0,
@@ -7267,12 +7392,12 @@
       5.8,
       9.3
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
     {
-     "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
+     "url": "props/mod_village/Prop_Cart_1_Hay.glb",
      "pos": [
       8.0,
       8.6
@@ -7301,7 +7426,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_Moss_2.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -7310,7 +7435,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 16
     },
     {
@@ -7318,7 +7443,7 @@
      "count": 12
     },
     {
-     "url": "props/q_unature/BushBerries_1.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "count": 6
     }
    ]
@@ -7561,7 +7686,7 @@
    },
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 18
     },
     {
@@ -7632,7 +7757,7 @@
     },
     {
      "part": {
-      "url": "props/q_farmbuild/Fence.glb"
+      "url": "props/mega_medieval/Prop_WoodenFence_Single.glb"
      },
      "from": [
       -8.5,
@@ -7642,7 +7767,7 @@
       3.3,
       4.0
      ],
-     "spacing": 5.9
+     "spacing": 2.06
     }
    ],
    "props": [
@@ -7699,7 +7824,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       8.6,
       8.0
@@ -7707,7 +7832,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.6,
       0.0
@@ -7721,7 +7846,7 @@
      "collider": "none"
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 16
     }
    ]
@@ -7778,7 +7903,7 @@
      ]
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "pos": [
       -8.6,
       -8.6
@@ -7809,7 +7934,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Bush_2.glb",
+     "url": "props/q_unature/Bush_1.glb",
      "pos": [
       0.0,
       8.6
@@ -7818,7 +7943,7 @@
    ],
    "scatter": [
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 22
     },
     {
@@ -7883,7 +8008,7 @@
      "scale": 2.2
     },
     {
-     "url": "props/q_unature/PineTree_4.glb",
+     "url": "props/q_unature/PineTree_2.glb",
      "pos": [
       -3.0,
       7.0
@@ -7898,7 +8023,7 @@
      ]
     },
     {
-     "url": "props/q_unature/Rock_3.glb",
+     "url": "props/q_unature/Rock_Moss_1.glb",
      "pos": [
       -8.0,
       -2.0
@@ -7918,7 +8043,7 @@
      "count": 25
     },
     {
-     "url": "props/q_unature/CommonTree_3.glb",
+     "url": "props/q_unature/CommonTree_1.glb",
      "count": 12
     },
     {
@@ -7926,7 +8051,7 @@
      "count": 10
     },
     {
-     "url": "props/mega_nature/Grass_Common_Tall.glb",
+     "url": "props/q_unature/Grass.glb",
      "count": 20
     }
    ]
@@ -7945,7 +8070,7 @@
    "kicker": "A SMALL TOWN IN THE HILLS",
    "name": "Ashford\nGreen",
    "tagline": "Left side: joystick to move  |  Right side: drag to look  |  USE opens doors and talks",
-   "hint": "Walk the streets. Open the hall door. Climb to the council chamber.",
+   "hint": "Walk the streets. Step into the town hall. Climb to the council chamber.",
    "color": [
     0.96,
     0.88,
@@ -7955,7 +8080,7 @@
     0.05,
     0.06,
     0.05,
-    0.92
+    1.0
    ]
   },
   "modes": [
@@ -8052,6 +8177,19 @@
     2.4,
     8.0
    ]
+  },
+  {
+   "name": "hall_porch",
+   "center": [
+    10,
+    1.0,
+    18.0
+   ],
+   "size": [
+    8.0,
+    3.0,
+    5.0
+   ]
   }
  ],
  "vars": {
@@ -8129,6 +8267,18 @@
     }
    ],
    "once": true
+  },
+  {
+   "id": "hall_door_porch",
+   "when": {
+    "event": "enter_zone",
+    "target": "hall_porch"
+   },
+   "then": [
+    {
+     "open_door": "door_town_hall_0_0_0"
+    }
+   ]
   }
  ],
  "hud": []

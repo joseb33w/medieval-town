@@ -1,87 +1,155 @@
-# QA report — Ashford Green (Godot 4.7.1 web export, chunk-mode `world.json`)
+# QA report — Ashford Green (rebuild, branch `chore/rebuild-world-json`)
 
-**VERDICT: PASS — 0 P0 ship-blockers, 5 P1 must-fix, 12 polish notes.**
+> **Coordinator remediation (after this report, re-proven on the shipped export):**
+> P1-1 streaming hitch — 11 near-identical library variants consolidated in `tools/world_layout.json`
+> (49 -> 37 distinct GLBs); verify.mjs worst frame 1817 ms -> 300 ms. P1-2 unlit interiors — every Mason
+> record now carries `openings: []` + `interior`/`floors`/`floor_height`, so the engine hangs its pinned room
+> lights (night interior mid-frame luma 38 -> 81 in the targeted probe). Polish 1 (house_b door clamp) fixed
+> (`pos` 9.15 -> 8.95). Polish 3-5, 7, 8 are engine/Mason-owned and are listed in the PR body as follow-ups.
 
-The user's literal request is met on the deployed export: a walkable medieval town; the town-hall door is a real hinged leaf that blocks when shut and swings open on USE; you walk in, climb a real stair to a real second floor (quest step fires); every window is a genuine hole you can see (and ray-cast) through; 18 enterable houses + tavern + chapel surround the hall. What keeps it from a clean pass is a set of must-fix usability/art items below — none of them makes the request unmeetable or the game unplayable.
+**VERDICT: PASS — 0 P0, 2 P1, 9 polish**
 
-> **Build changed under test.** The coordinator re-generated the export while this QA was running (Mason GLBs + `world.json` 22:04–22:07 UTC: stairs widened 1.2→2.0 m / 1.1→1.8 m, steward moved, `hud_trim` + `quiet_door_*` + `steward_met` rules, title `"Ashford\nGreen"`, `attack` hidden, toast text fixed). Everything in this report was **re-verified on the final export** (`/tmp/qa/final*.log`, frames `/tmp/qa/A*.png`, `/tmp/qa/B*.png`, `verify.mjs` re-run → `/tmp/qa/verify_final.log`, PASSED). Findings that the 22:07 update already fixed are listed at the end as "fixed mid-QA" so they are not re-reported.
+Export tested: `/workspace/repo/out` (served locally, wasm MIME, CDN proxy for `/godot-assets`). The deployed
+preview at `https://preview.myapping.com/cloud-ahdwaq6ir1exe3c168f9/` serves the **identical** `world.json`
+(md5 `50a07558…`) and an `index.pck` of the same size (5 108 448 B), so results transfer.
 
-How I tested: my own Playwright drivers against `/workspace/out` served locally (Chromium + SwiftShader, 960×540 plus 400×860 / 860×400), reading real engine state via `window.gogiGetPlayer()`, `gogiSolids()`, `gogiBoard()` and the `GOGI_RULE_FIRED` console lines; a headless-Godot ray-cast probe over the compiled Mason GLBs (`/tmp/qa/geo_probe.gd`, `geo_stairs.gd`); static checks of all 20 door leaves vs their doorways. Scripts + logs + ~60 frames are in `/tmp/qa/`. Project untouched (nothing written under `/workspace` except this report).
-
----
-
-## ❗ P1 — must fix (not ship-blocking)
-
-### P1-1 Any ground-floor window can be jumped through — the door is optional
-- **Repro (3×, incl. final build):** stand outside the hall at (6.5, 16.6) facing the south window (sill 1.3 m), hold W + one Space. Result: player passes through the opening and ends inside at (6.19, 0, 12.06) (`final.log:194`); earlier runs (13.5, 16.4)→(13.54, 0, 6.36) and (7.0, 15.07)→(6.44, 1.25, 5.96) — the last one landed *standing in* the far north window (`/tmp/qa/28-window-jump-mid.png` shows the hero already inside mid-jump). Walking without jumping is correctly blocked (z stays 14.9).
-- **Why:** `architect_notes`/coordinator brief say sills at 1.3 m > 1.2 m step-up "so you cannot climb in" — but the jump (`JUMP_SPEED`) clears 1.3 m easily and the 1.2–1.3 m wide openings fit the 0.8 m capsule. Same applies to all 21 buildings (house_c's 0.75 m windows are the only ones too narrow).
-- **Also:** upper-floor sills are 4.66 − 3.66 = **1.0 m above the slab (< 1.2 m step-up)**, so walking into an upstairs window pops the hero up *into* the opening (ends at y 4.61, z 5.96, standing in the wall — `hall3.log:128`, `/tmp/qa/25-upper-window-walkpush.png`). They don't fall out (head hits the 1.6 m window head), but it reads as a glitch.
-- **Fix direction (data, `structures.json`):** raise ground-floor sills to ≥ 2.0 m *or* narrow windows to ≤ 0.75 m *or* add an invisible collider (glazing/bars) inside each opening (a thin box part with a transparent material keeps them see-through); raise upper sills to ≥ 1.25 m above the slab. If you decide window-hopping is a feature, downgrade this to polish but still fix the upper-sill pop-up.
-
-### P1-2 Stair can only be mounted from its foot; the foot sits in a 1.1 m slot against the back wall
-- **What works (final build, wider 2.0 m flight, world x 4.55–6.55, rises toward +Z):** from the slot between the north wall and the first step (z ≈ 6.4–6.6) the climb succeeds along the wall lane x=4.9/5.0, the centre x=5.55 and going *down* the open-edge lane x=6.45 (`final2.log:76,116,131`; `/tmp/qa/B1-upstairs-new-stair.png`). Upper slab swept at 7 points, no gaps.
-- **What fails:** the flight's open (east) side is a wall — approaching from the room (the natural path from the door) at x≈7.1 pins the player at x=7.08, y bobbing 0/0.28, and **jumping does not help** (`final2.log:43`, A + 2×Space → still x=7.08). Grazing the edge with the capsule centre just past x=6.55 also stops dead (x=6.59, z=6.50, S does nothing — `final.log:94`). Before the widening the usable lane was ~0.5 m of a 1.2 m flight (`stairedge.log`: x=5.89 and x=4.85 both stuck at the foot) and the tavern flight hard-wedged the player under the well edge at (46.52, 1.99, 22.07) with **no sideways escape** (`houses.log:192`).
-- **Why:** `main._step_up_assist` probes one ray at the capsule centre 0.6 m ahead; a 0.2 m riser under the capsule's *edge* is never lifted, so the side of the flight behaves like a wall; the foot is only 1.1 m from the north wall (flight 7.06–11.74, wall face 5.95), so lining up means walking past the stair into the corner slot and turning round.
-- **Fix direction (data):** give the foot ≥ 2.5 m of clear floor (shift `stair.cy` toward the door, or flip the flight so it rises toward the back wall and the foot faces the entrance), keep the 2.0 m width, and/or add a low ramp/wedge collider along the open side so a sideways approach slides up onto the treads. Move the tavern chest (`[2,1] chest pos [-3.5,-6.5]` → world (46.5, 23.5)) out from under the tavern flight (45.55–47.35 × 20.0–24.4) — it is currently inside the stair.
-
-### P1-3 Buildings and interiors are flat single-colour, untextured geometry
-- **Evidence:** `models/town/*.glb` carry no textures/images — one `baseColorFactor` per part (`body:stone` 0.52/0.50/0.46, `roof:slate`, `trim:*`); nothing in the runtime maps those names to `GSurf` triplanar surfaces (grep `body:`/`mason` in `*.gd` → none). Frames: hall façade `/tmp/qa/06-pitch-up-sky.png`, `A3-after-use-at-door.png`; interiors `/tmp/qa/70-hall-interior-level-west.png`, `41-house_b-interior-lookback.png`, `B2-upstairs-far-corner.png` — bare monochrome rooms, no floor/ceiling material, no furniture (the "council chamber" is an empty slab; the tavern has no bar, no sign outside).
-- **Judgement:** this is *not* the gray-box anti-pattern (plinth, courses, cornice, gables, arched windows, real openings, shadows all present), but against the "medieval town" ambition every wall reads as flat plaster-grey next to textured Quaternius/Meshy props and characters.
-- **Fix direction:** bake triplanar stone/plaster/slate/timber textures into the Mason export (or post-map material names → `GSurf` presets in `tools/pp.mjs` / a loader hook), add a floor material distinct from the walls, and dress the hall/tavern interiors with a handful of props (council table + benches upstairs, bar/kegs in the tavern) and a hanging sign on the tavern.
-
-### P1-4 NPC speech locks USE with no timeout
-- **Evidence:** USE on the steward → prompt "Steward Aldric is speaking…" and `try_use()` early-returns while `_speaking` (`interaction.gd:302`). In this sandbox the TTS fetch never completed, so USE stayed dead for the rest of the session (screenshots every 8 s for 2 min, `/tmp/qa/31-steward-t0..t7.png`, all still "speaking"; a subsequent USE at the hall door did nothing, `hall2.log:24`). In production the endpoint answers, but 2 authored lines + a brain reply still mean ~10–20 s in which the game's *only* verb (the door) is dead, with no on-screen text.
-- **Fix direction:** engine-owned (`HTTPRequest.timeout`, or don't gate USE on `_speaking`) — flag to the template owners; data mitigation now: one short line per NPC, and keep the `steward_met` toast (present in the final build) so the player gets text feedback.
-
-### P1-5 A 1.45 s frame while walking into fresh cells (verify `FEEL perf`)
-- **Evidence:** `/tmp/qa/verify_final.log:27` `worst frame 1450ms (REAL — device-independent)`; the coordinator's earlier run measured 233 ms, so it is intermittent. Likely suspects: inline trimesh bake of the Mason GLBs on web (`chunk_manager._add_mesh_collision`, 972-tri hall / 1176-tri chapel), the chapel yard's ~57 wall modules, and the 51-distinct-GLB working set over the 32-entry cache (verify WARN → re-download/re-parse hitches).
-- **Fix direction:** reuse fewer distinct kit GLBs (trees/flowers/fences), keep ≤ 32 distinct models, and check the chapel cell's build is time-sliced.
+How it was driven (all scripts/frames in `/tmp/qa/`):
+- **Web (real export, headless Chromium + SwiftShader)** — `run1..run6.mjs` + `lib.mjs`: title button click,
+  real key input (WASD), right-half mouse drag for the orbit, `window.gogiBoard()` (= `interaction.try_use`,
+  the USE path), `gogiSolids()` leaf AABBs, screenshots (`/tmp/qa/*.png`). Portrait 400×860 and landscape
+  860×400 (`run4`), 800×500/900×600 for gameplay.
+- **Native headless (60 Hz physics, no renderer)** — `/tmp/qa/native/*.gd` run the REAL `main.tscn` against the
+  same export (`--world-url http://localhost:5310/world.json --mode=explore`) and drive `main.move_vec` (the
+  joystick vector) + `interaction.try_use()`. Used wherever the software-GL frame rate (1–4 fps) made web physics
+  unreliable (stairs, door-block from inside, house doors, boundary, sky cycle timing, quest chain). Logs:
+  `native/native2.log`, `native/native_sky.log`, `native/native_quest.log`.
+- **Headless Godot renders of the raw assets** (`gproj/render.gd`, `gproj/anim.gd`) to separate asset defects
+  from engine/lighting ones (`glb-*.png`, `anim-*.png`).
+- Static: `world.json` vs `structures.json` door/leaf geometry for all 20 doors; engine source read-through
+  (`interaction.gd`, `chunk_manager.gd`, `weather3d.gd`, `surfaces.gd`, `main.gd`).
 
 ---
 
-## ⚠️ Polish (worth fixing, not blocking)
+## ❌ P0 ship-blockers
+None found.
 
-1. **Doors are open-once.** `interaction._nearest` skips a `kind=="door"` entry once `open` (`interaction.gd:391`), so USE at an open leaf does nothing — verified: leaf AABB identical before/after a second USE (`hall.log:100-102`). Answer to "does the door close/re-open?": **no**. Acceptable for the request; note it.
-2. **Toast collides with the quest label.** `upstairs` toast draws across "QUEST: The Council Chamber…" (`/tmp/qa/B1-upstairs-new-stair.png`); q_town toast likewise (`B4-hud-after-quest.png`). Engine layout; shorten toasts or accept.
-3. **Quest checkbox doesn't tick after talking** — `quest.notify_talk()` never emits `objective_changed` (`quest.gd:69-73`), so "[ ] Speak with Steward Aldric" stays unticked until the whole quest completes (`/tmp/qa/20-after-steward-talk.png`). Template bug; the `steward_met` toast now covers the feedback gap.
-4. **Indoor camera hugs the ceiling.** The 8.5 m spring collapses against the 3.4 m ceiling/walls so interior frames are steep top-down or wall-filled with the hero hidden (`/tmp/qa/23-upstairs-look-south.png`, `24-upstairs-look-east.png`, `21-stair-from-foot.png`). Physics is fine (ray probe: spring-arm rays from head height hit the slab/walls at 2.9–3.8 m); it is a `CAM_DIST` constant, engine-owned.
-5. **Player bobs onto the plinth when pushing into a façade** (y 0.35→0.62→0 jitter at the hall wall, `hall2.log:26-29`) — the 0.12 m plinth ledge at 0.6 m is within step-up reach.
-6. **Plaza crowd is 5 identical red market-women** (populate for `[0,1]` picked `market_woman` 4/4 by deterministic seed + Greta is the same model; `/tmp/qa/04-spawn-yaw270.png`). Weight `villager_man` or add a third cast model.
-7. **`Canopy_Full` (scale 2.5) reads as a 3 m beige block** on the plaza (`/tmp/qa/03-spawn-yaw180.png`); tavern has no sign or identifying dressing; sky is a flat white sheet ("cloudy"); the world edge shows as a flat dark-green wall on the horizon (`/tmp/qa/80-east-edge-lookback-west.png`).
-8. **Lane strips are 6 cm solids above the analytic ground** — the player is pinned to y=0 so feet sit 6 cm inside the cobbles and verify reports "wedged spawn" / "position INSIDE a solid AABB at [10.0,14.9]" (both are the strips, not a missing collider). Make the strip parts `collider:"none"` or lift the ground.
-9. **Talking through walls:** the steward could be triggered from inside the hall at 3 m (`hall2.log`, before he was moved) — `_nearest` is distance-only.
-10. **Sword drawn at start in a peaceful town** (SHEATHE works; ATTACK is now hidden). Engine `start_weapon` default.
-11. **verify WARNs to keep an eye on:** 51 distinct GLBs > 32 cache; `hud_fit` none; "FLAT-TINT" lint is a false positive (`GCast.recolor` duplicates materials — crowd textures are intact in frames).
-12. **Chapel** has no door (open archway) and was not entered — the request didn't ask for it; fine.
+## ❗ P1 must-fix
+
+### P1-1 · Streaming hitch: a 1 817 ms frame while walking into fresh cells (device-independent) — DATA + ENGINE
+- Evidence: `/tmp/verify.log` `FEEL perf: … worst frame 1817ms (REAL — device-independent)` on this exact export;
+  the same log flags `world references 47 distinct GLB assets — over the 32-entry streaming cache` (I count 49
+  distinct URLs in `world.json`: 6 Meshy + 7 Mason + 36 library props).
+- Why it matters: per the QA contract a >250 ms worst frame is real synchronous work, not a container artifact —
+  it stalls a phone the same way (a visible hitch every time a new cell ring loads).
+- Data fix direction (`tools/world_layout.json` → `world.json`): cut the distinct library set below 32 — the
+  outer ring uses many one-off variants (`q_unature` CommonTree_1/3, PineTree_2/4, BirchTree_2, Bush_1/2,
+  BushBerries_1, Rock_3/Rock_Moss_1/2, Flowers/Grass/Wheat/Grass_Common_Tall, `q_farmbuild` Fence/OpenBarn/
+  SmallBarn/Windmill, `mega_medieval` fence vs `q_farmbuild` fence …). Reuse ~2 trees, 1 bush, 1 rock, 1 fence
+  across cells. Engine side (template-owned, not fixable here): the per-cell build slice.
+
+### P1-2 · No light sources at night: interiors are unlit, street lamps and windows never glow — DATA (+ engine gap)
+- Evidence (deterministic `gogiSetTime("night")`/`"day"` frames, not wall-clock):
+  - `45-hall-inside-night.png` — hall interior at night: only the moonlit floor reads (mid-frame luma 38, 16 %
+    near-black); walls/ceiling/stair are black masses. By day the interior walls and ceiling read as **flat
+    uniform grey** (`20-hall-look-west.png`, `21-hall-look-east.png`, `44-hall-look-up-day.png`) — the GSurf
+    normal relief only shows where sunlight enters a window.
+  - `32-night.png`, `43-spawn-night.png` — the square at night: the 8 `Prop_Lamp_Street` posts are black
+    silhouettes, hall windows dark. Night IS moonlit-readable (mid luma 24–26, <2 % near-black) so this is not a
+    P0, but a medieval town at night with no lamp/candle glow reads unfinished.
+- Root cause (read in `chunk_manager.gd:1831-1837, 2338-2372`): `_mason_fittings()` — the code that adds
+  `GBuild._room_light` per storey — only runs when the placement record has an `"openings"` key AND an
+  `"interior"` key. The `--wire` output carries neither (records have `url,pos,rot,collider,footprint` only),
+  so every Mason building ships with **zero interior lights**. Library lamp props have no engine light hook.
+- Data fix direction (`tools/build_town.py --wire`): emit on every Mason record
+  `"openings": [], "interior": {"floor_z": 0.06}, "floors": <n>, "floor_height": <h>` — the **empty**
+  `openings` array keeps the engine from hanging a duplicate `MasonDoor` leaf next to the `doors[]` leaf, while
+  the `interior` dict turns on the pinned room lights (1/storey, max 2). For street lamps: the only engine
+  light primitive reachable from data is a `structures[]` entry with `sign_light` (geometry.md) — a small
+  parametric lantern post with `sign_light:{color:[1,0.8,0.5],energy:2,range:9}` at the 4 square lamp
+  positions would give the square a night pool; otherwise note it as an engine gap.
+
+## ⚠️ Polish
+
+1. **house_b door in cell [-1,1] is clamped 0.15 m off its doorway** — DATA. `doors[].pos` is `[9.15, -3.6]`;
+   the engine clamps door pos to ±(half−1) = ±9 (`chunk_manager.gd:1201`), so the leaf AABB is
+   x −3.30..−1.00 (native + web reads) against a doorway at x −3.15..−0.85 → 15 cm sliver at the hinge jamb,
+   15 cm buried in the wall on the other side. Still blocks/opens correctly (native: blocked at z 26.90,
+   opened, walked in to z 20.9). Fix: keep every door pos within ±9 — e.g. move house_b in that cell from
+   x 6.0 to ≤ 5.85 in `tools/world_layout.json` (all other 19 doors are inside the clamp; static check of all
+   20 leaves vs `structures.json` openings: 20/20 centred within the 0.2 m wall-mid offset).
+2. **Door leaf renders as a black slab in shadow** — DATA/ENGINE. Sunrise from outside (`10-hall-door-closed.png`)
+   and night from inside (`25-door-closed-inside.png`) the timber leaf (GSurf `timber` 0.30/0.20/0.12, no direct
+   light) is a black rectangle in the doorway; by day it reads as brown timber (`11-hall-door-open.png`).
+   Cheap data mitigation: `doors[].material: "wood"` (lighter preset) — real fix is P1-2's interior light.
+3. **HUD text stacks overlap** — ENGINE (`game_shell` toast vs quest tracker vs `interaction` dialogue box).
+   `12-hall-inside.png` shows three text layers at once at the top: "The door swings open." panel, the
+   into_hall toast, and the QUEST tracker all overlapping; `26-steward.png` the q_town toast over the tracker.
+4. **Hero spawns facing the camera** — ENGINE. At spawn the traveler faces +Z (toward the north-looking camera,
+   face visible in `30-portrait.png`/`31-portrait-later.png`) until the first movement input turns him.
+5. **Drawn Rusty Sword in a peaceful town** — ENGINE default (`rpg_systems.gd` starting item) with the ATTACK
+   button hidden by the director but the SHEATHE button left. Reads odd walking into a town hall with a bare
+   blade; no data knob found to start sheathed/unarmed.
+6. **`villager_man` idle is an arms-spread "shrug" pose** — DATA (Meshy asset). Headless render of the clip at
+   t=0/1.5/4/8 s (`anim-villager_man-idle-*.png`) barely changes and holds the arms out; at gameplay distance it
+   reads like an A-pose (`42-spawn-look-up-sky.png`, `40-spawn-look-east-day.png`). The rig DOES animate
+   (walk clip moves, `anim-villager_man-walk-*.png`), so not a dead T-pose — but a regenerated idle (arms down)
+   would help since this model is 2/3 of every `populate` crowd.
+7. **Interior plinth ledge is climbable** — Mason compile (out of this rebuild's scope). Pressing into an interior
+   wall step-up-assists the player onto the plinth band: native run y=0.62 at the hall north wall, y=0.47 inside
+   house_b/house_d (plinth `top_z` 0.6/0.45). Visible pop-up when brushing walls.
+8. **Engine GSurf override discards the compiled textures** — ENGINE observation. The Mason GLBs carry baked
+   ashlar/brick course textures (see my raw render `glb-outside_sw.png`, `glb-montage.png`); in-game
+   `_mason_materials()` replaces them with uniform noise-relief `stone/plaster/brick/timber/slate`. Facades
+   still read as textured relief (`10-`, `11-`), but the course pattern is lost.
+9. **Streets are undifferentiated cobble** (verify WARN `NO roads[]`) and the sunset tint is heavily saturated
+   (`34-sunset.png`, `35-landscape.png`). Acceptable for a village square; optional lanes via `roads[]`.
 
 ---
 
-## ✅ Verified working (final export)
+## ✅ Verified working (evidence)
 
-| Check | Evidence |
-|---|---|
-| Boot, canvas, clean console (no SCRIPT ERROR/Parse Error/uncaught), no asset 404s | `verify_final.log` PASS; my runs `http>=400: 0`; only my-harness worklet noise |
-| Spawn on the square (10, 0, 30) facing the hall 15 m north; steward now beside the door at (14, 17.5) | `/tmp/qa/A1-spawn-hud.png` |
-| Closed hall door **blocks**: push W from z 16.7 → stops at z 14.88 (leaf AABB x 8.8–11.2, z 14.07–14.47) | `final.log:19`, `hall.log:21-23` |
-| USE from the corridor centre (x=10, z≈16.7) opens the **door** (`quiet_door_town_hall_0_0_0` fired, not `steward_met`), leaf swings 95° outward (AABB → x 10.9–11.5, z 14.16–16.58), collider disabled, **no modal panel** | `final.log:21`, `/tmp/qa/A3-after-use-at-door.png` |
-| Walk in; `into_hall` fires; interior walls solid on all sides (x≥4.3/≤15.7, z≥5.8) | `hall.log:29-55` |
-| Stair to the **second floor without jumping**: y 0→3.61 over z 6.5→11.99; `upstairs` fires → `hall_upper` flag | `final2.log:76-77`, `B1-upstairs-new-stair.png` |
-| Upper slab continuous (7–10 sweep points, y ≥ 3.3, no fall-through at walls/edges); upper walls solid | `final2.log:105`, `hall3.log:106,118` |
-| Back **down** the stair and **out** through the open door | `final2.log:116,158` |
-| **Windows are real openings**: headless ray-cast through every probed opening passes, walls hit at exactly 14.5/14.05/5.5 (`geo_probe.gd`); frames show the outside through windows from inside and the hero through the arch from outside | `/tmp/qa/41-house_b-interior-lookback.png`, `22-upstairs-arrival.png`, `verify/town-upstairs-window.png` |
-| Quest chain end-to-end: upstairs flag + steward talk → `q_hall` completes, `GOGI_CHAIN advanced to 1/2`, HUD switches to "Meet the Townsfolk" | `final2.log:169`, `/tmp/qa/B4-hud-after-quest.png` |
-| Houses: house_b [-1,1], house_d [1,1], house_c [1,1], tavern [2,1] — closed leaf blocks, USE opens, walk in, hollow interior reachable to the far corner, exit again; 3.1 m head clearance under the house slabs | `houses.log`, `/tmp/qa/41-44-*.png` |
-| All **20 door leaves** centred on their doorways (offset 0.20–0.23 m = mid-wall), correct facing | static check vs `structures.json` + `world.json` (this report's session) |
-| Tavern stair reaches its upper floor (y 3.41 at z 24.67) along the centre lane | `tavern.log:53` |
-| World boundary: walked east along High Street to x=79.0 — contained at the grid edge, 176 solids still resident, town visible behind | `edge.log`, `/tmp/qa/81-east-edge-look-east.png` |
-| Camera orbits with right-half drag/touch (yaw 0→1.30), pitch clamps (never floor-stares); WASD camera-relative; hero shows its BACK on W, FACE on S | `mobileP/L.log`, `/tmp/qa/42-house_d-interior-lookback.png` |
-| Mobile fill 400×860 and 860×400: canvas == viewport, no letterbox, HUD (JUMP/USE/SHEATHE, quest text) inside the frame, joystick moves 7.8 m, no debug text | `/tmp/qa/5P-game.png`, `5L-game.png` |
-| Title renders "Ashford / Green" (no mid-word break) at 960×540 | `/tmp/qa/A0-title-960x540.png` |
-| Characters all Meshy (traveler hero, steward, blacksmith, market_woman, guard, villager_man), textured, animated, feet on the ground (`GOGI_HERO_SEAT 0.011`) | manifest + frames |
-| `manifest.json` `webOnly:false` (native-playable data world); qgcheck winnable; audio infra + music/ambient present | `verify_final.log` |
+| Check | Result | Evidence |
+|---|---|---|
+| Boot, canvas, engine | ✅ | `Godot Engine v4.7.1` banner in all 6 web runs; canvas present; `GOGI_WORLD_BOUNDS x=-60..80 z=-60..80` |
+| Console clean | ✅ | 0 × `SCRIPT ERROR / Parse Error / GOGI_PLACEHOLDER / GOGI_RULES_UNIMPL / pageerror` across `run1-6-console.log` (1 173 lines) and 4 native runs. Only sandbox noise: `ERR_CERT_AUTHORITY_INVALID` + `Failed to fetch` on the `npc.myapping.com` speech/brain fetch |
+| Hall door leaf sized + placed | ✅ | closed leaf AABB `x 8.85..11.15, y 0..3.10, z 14.18..14.36` (=2.3×3.1, hinge at 11.15, mid-wall) — web `run3`, native |
+| Closed leaf blocks | ✅ | walking north at x=10 stops at **z=14.77** (web run2/run3/run6 and native), i.e. leaf z 14.18 + 0.18 + capsule 0.4 |
+| USE opens, stays open | ✅ | leaf AABB → `x 11.06..11.44, z 14.27..16.57` (swung ~95° outward); still open after 3 s, still open after dismissing "The door swings open." with USE (`run3`); collider `disabled=true` (native) |
+| Walk in → `into_hall` | ✅ | `GOGI_RULE_FIRED into_hall on=enter_zone` at z<14 (web ×4, native ×3); toast shown (`12-hall-inside.png`) |
+| Toggle close from inside | ✅ | USE at (10.5, 11.8) → leaf back to `x 8.85..11.15` with `open=false disabled=false`; pushing out stops at **z=13.78** (web run3 + native); USE re-opens (mid-swing AABB `x 9.39..11.21 z 14.21..15.9` captured) |
+| Stairs → council chamber, no jump | ✅ | native 60 Hz: from (5.5, 0, 7.0) pushing +Z → `(5.50, 3.61, 12.91)` in 1.4 s, `GOGI_RULE_FIRED upstairs`; upper slab walk east → `(15.14, 3.61, 13.01)`. (Web runs stalled mid-flight at y 0.3–3.15 = software-GL physics artifact, not geometry; `upstairs` still fired in web run3.) |
+| House doors ([-1,1] house_b, [1,1] house_d) | ✅ | house_d leaf `x 23.35..25.65 z 33.51..33.69` exactly on its doorway; blocks at z=33.11; USE → `x 23.06..23.44 z 31.30..33.61`; walked in to z=40.6. house_b: blocks at z=26.90, USE → `x -1.09..-0.71 z 26.39..28.70`, walked in to z=20.9 (see polish 1 for its 0.15 m clamp) |
+| All 20 doors centred on their doorway | ✅ | static: leaf centre vs `structures.json` door opening (with `centre` offsets for house_b/tavern) — 20/20 within 0.25 m (0.2 m = mid-wall depth) |
+| Sky cycle runs + loops | ✅ | native `weather.time_state` transitions: `sunrise@0.7s → day/cloudy@25.7s → sunset@115.7s → night@140.7s → sunrise@200.7s` (25/90/25/60 s as authored, `loop:true`); `sun_energy` lerps 0.9→0.71→0.85→0.38→0.87. Web frames across a session agree: warm sunrise (`10-`), grey day (`11-`, `33-`), orange sunset (`14-`, `34-`), starry night (`22-`), day again (`23-`) |
+| Night readable / day not blown out | ✅ | `32-night.png` mid luma 24.6, 1 % near-black; `43-spawn-night.png` 26.3 / 2 %; day `33-day.png` luma 116, verify clipped 0.0–0.1 % |
+| Mason materials on buildings | ✅ | facades textured relief stone/plaster/brick/timber + slate roofs (`10-`, `11-`, `27-house-b-inside.png`, `40-`, `41-`); roofs and trims distinct; no flat single-colour exteriors, no default-grey primitives |
+| Far ring skyline | ✅ | from the square, roofs of cells 2 away are visible on the horizon east and west (`40-spawn-look-east-day.png`, `41-spawn-look-west-day.png`) — buildings render as real geometry to radius 4, not popping at the ring edge |
+| World richness / density | ✅ | 7×7 cells (140 m), 21 Mason buildings (hall/tavern/chapel/18 houses) around a cobbled square with well, stalls, carts, benches, lamps, fences, trees, wandering crowds + 4 named NPCs; fields/orchards/pastures with barns + windmill in the outer ring (`02-walk-W.png`, `40-`, `41-`, `35-landscape.png`). Reads as a small town, not a diorama |
+| Ground | ✅ | `cobble` preset (textured, not flat colour) + paving `rows`; fields green |
+| Hero facing | ✅ | W → back/hood/pack visible (`crop-W-hero.png`); S → face + shirt front (`crop-S-hero.png`); W moved z 30→20.45, S back to 33.45 |
+| Camera orbit | ✅ | right-half drag: `cam_yaw 0.00 → 1.16`; pitch clamps (look-up frames `42-`, `44-` show horizon/ceiling, never floor-stare) |
+| Feet on floor | ✅ | `foot_raw` 0.035–0.038, `GOGI_HERO_SEAT 0.011`; boots on ground in `26-steward.png`, `40-` |
+| Real sky | ✅ | Weather3D time-of-day sky (blue day, starry night `22-hall-look-up.png`); no grey ceiling outdoors (`42-spawn-look-up-sky.png`) |
+| Characters Meshy + textured | ✅ | all 6 characters from `models/meshy/*.glb` (1 image, 1 textured material, 24-joint skin, idle/walk/run each; traveler +jump); market woman/steward/traveler clearly textured in frames; no KayKit fallback (the `kk_rig_medium_*` GLBs are the engine's animation libraries, unreferenced by world.json) |
+| Clip resolution | ✅ | every referenced clip exists (`anim.gd`: `["idle","run","walk"]` ×5, traveler `+jump`); hero `clip=idle/run` in `gogiGetPlayer`; walk clips move the legs (`anim-*-walk-*.png`) |
+| Quest chain | ✅ | web run3: steward talk → `steward_met`, q_hall complete → `GOGI_CHAIN advanced to 1/2` + "Meet the townsfolk" toast. Native: blacksmith → greta → guard talks → q_town `status:"done"` → `GOGI_CHAIN advanced to 2/2` |
+| Rules | ✅ | `hud_trim` on start (stats/health/minimap hidden), `into_hall`, `upstairs`, `steward_met` all fired through real paths; no `quiet_door_*` regression (door never auto-shut) |
+| Mobile fill portrait 400×860 | ✅ | canvas 400×860 = window; corners tl/tr sky, bl/br ground (no black bars); `GOGI_HUD_GRID vp 720x1548 win 400x860 … rows 1064/1212/1360` — 3 button rows inside; joystick half free (`30-`, `31-portrait-later.png`) |
+| Mobile fill landscape 860×400 | ✅ | live resize re-laid out: `vp 1548x720 win 860x400 scale 1.78 … rows 345/457/568`; canvas fills; corners rendered (`35-landscape.png`) |
+| Input-binding sanity | ✅ | no `[input]` actions; move = W/A/S/D/arrows + left-half touch, look = right-half drag / mouse-LMB drag guarded by touch indices, USE = E/button, jump = Space/button; ATTACK button hidden by director; no fire on look/move possible |
+| World boundary | ✅ | native: walking west from x=−52 stops at **x=−59.1** (`_clamp_to_world`, grid −60..80); 6 resident cells at the edge, world persists |
+| Winnability / native tier | ✅ | verify `quest-graph OK — world is winnable (49 areas)`; `manifest.json` `webOnly:false` |
+| Audio presence (static) | ✅ | `AudioManager` + `default_bus_layout.tres`; `play_sfx("door"/"ui"/"pickup")` on USE/door/rule; music `calm_town`, ambients `town_crowd`/`forest_birds` per region; 16 files in `out/audio` |
+| Engine currency / pck | ✅ | verify: 70/70 template files current; pck 5.1 MB; peak GPU mem 80 MB / 220 budget |
 
-## Fixed mid-QA by the 22:07 update (confirmed on the final export, not re-reported)
-Title mid-word wrap ("ASHFOR / D GREEN" on all viewports → now "Ashford / Green"); `hide_hud: stats/health` no-op (now `hud_trim` rule: stats, health, minimap hidden; ATTACK hidden); "The door swings open." modal panel (now `quiet_door_*` rules → silent swing); USE at the door talking to the steward (steward moved to (14, 17.5); door wins from the corridor); `into_hall` toast saying "east wall" (now "left-hand wall"); stair widened.
+Notes on verify WARNs I checked and consider non-defects: `FEEL collision … INSIDE a solid AABB at [10,20.3]` — that AABB is the cell ground box `[0,-1,20]..[20,0,40]` (y ≤ 0), the player stands on its top face → probe false-positive, not a missing collider. `frames identical` — title screen. `3/4 rules did not fire` — they are gated behind walking into the hall/stairs/steward; all three fired under my drive.
+
+Sandbox timing (not defects): under software GL the resident cells finish ~10–20 s after ENTER — `30-portrait.png` taken ~10 s in shows the bare cobble plane before the hall/props exist; every `ReadPixels` screenshot stalls the engine several seconds; web physics at 1–4 fps stalls on stairs. All stair/door/boundary/cycle conclusions above therefore rest on the 60 Hz native runs plus web state deltas, not on timed screenshots.
 
 ## Could not verify (sandbox limits)
-Real audio/TTS playback and speech end (npc.myapping.com fetch hangs here — P1-4 is sandbox-amplified), true GPU fidelity/colour, real touch feel and two-thumb play, the remaining 14 houses individually (door leaves verified statically, 4 buildings entered), the chapel interior.
+- Real audio/music/SFX playback and NPC TTS — the container mutes audio and `npc.myapping.com` is cert-blocked
+  (`Failed to fetch`). Side-observation: while a speech request is pending (8 s timeout here) USE on **another**
+  NPC is ignored (`interaction.try_use` `_speaking` gate) — on device that window is the spoken line's length.
+- True-GPU fidelity (bloom, exact colours, shadow softness), touch feel, real phone frame pacing.
+- The Supabase/`wss` path (no multiplayer config in this world).
+- On-device time-to-first-cell after ENTER (coordinator states a few frames; here 10–20 s).

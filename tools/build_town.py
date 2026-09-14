@@ -102,7 +102,14 @@ def wire(world, specs, cell_size):
             e["collider"] = "mesh_exact"
             # `footprint` marks the record as a BUILDING: the engine applies the Mason GSurf surfaces
             # to the body_/roof_/trim_ solids and draws it across the far ring as skyline.
-            e["footprint"] = list(sp_footprint(by_id[tid]))
+            sp = by_id[tid]
+            e["footprint"] = list(sp_footprint(sp))
+            # An interior dict switches on the engine's pinned room lights (one per storey, max two);
+            # the EMPTY openings array keeps it from hanging a second leaf beside the doors[] one.
+            e["openings"] = []
+            e["interior"] = {"floor_z": float((sp.get("interior") or {}).get("floor_z", 0.06))}
+            e["floors"] = int(sp.get("floors", 1))
+            e["floor_height"] = float(sp.get("floor_height", 3.2))
             px, pz = (e.get("pos") or [0, 0])[:2]
             rot = float(e.get("rot", 0.0))
             placed.append({"type": tid, "cell": [gx, gz], "world": [cx + px, cz + pz], "rot": rot})
