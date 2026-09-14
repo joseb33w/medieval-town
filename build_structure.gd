@@ -14,6 +14,8 @@ class_name GBuild
 ##   batter/shrink/steps   profile tuning
 ##   cap            "flat"|"gable"|"hip"|"pyramid"|"pyramidion"|"dome"|"spire"    (the roof/top)
 ##   roof_height    explicit cap height
+##   ridge_axis     "x"|"y"|"z" for cap "gable" — which way the ridge RUNS (default z).
+##                  Mason emits "x"/"y" in its own frame; model X -> Godot X, model Y -> Godot Z.
 ##   facade         "plain"|"windows" (or {type:"windows",glow:[r,g,b],lit:E})   (wall treatment)
 ##   material       surface preset/spec for the body (surfaces.gd)
 ##   roof_material  surface for the cap (defaults to material)
@@ -163,7 +165,17 @@ static func _add_cap(root: Node3D, cap: String, top_foot: Vector2, height: float
 	var c: Node3D = null
 	match cap:
 		"gable":
-			c = GShapes.roof_gable(top_foot, float(spec.get("roof_height", maxf(2.0, top_foot.y * 0.45))))
+			# `ridge_axis` = which way the RIDGE RUNS. GShapes.roof_gable is a PrismMesh, which
+			# extrudes along Z, so the ridge is along Z unless we swap the span and turn it.
+			# Mason authors in its own frame where model X -> Godot X and model Y -> Godot Z,
+			# so "x" means a quarter turn here and "y"/"z" is already the default. Without this
+			# a Mason gable and its far-ring stand-in disagree by 90 degrees, and the roof
+			# visibly snaps round as the player crosses the proxy horizon.
+			var _rh := float(spec.get("roof_height", maxf(2.0, top_foot.y * 0.45)))
+			var _ridge_x := String(spec.get("ridge_axis", "z")).to_lower() == "x"
+			c = GShapes.roof_gable(Vector2(top_foot.y, top_foot.x) if _ridge_x else top_foot, _rh)
+			if _ridge_x:
+				c.rotate_y(PI * 0.5)
 		"hip", "pyramid":
 			c = GShapes.pyramid(top_foot, float(spec.get("roof_height", maxf(2.0, minf(top_foot.x, top_foot.y) * 0.5))))
 		"pyramidion":

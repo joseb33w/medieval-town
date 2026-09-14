@@ -47,6 +47,8 @@ const RING_RADIUS := 1                 # Chebyshev radius -> 3x3 footprint
 # ring (11x11 - 3x3 resident = 112 proxies + headroom).
 const FAR_RADIUS := 4                  # far-PROXY ring radius: silhouette-only cells past the resident ring (5->4: ~112->72 proxies, fewer per-move builds; the ~160m skyline still fills the horizon)
 const FAR_CAP := 96                    # LRU ceiling on live far proxies (bounds far-ring memory). Lowered 128->96 for #10/#8 mobile-OOM headroom (the "sudden refresh" is a mobile tab-crash-reload under memory pressure, not a code reload)
+const BUILDING_DETAIL_RADIUS := 4   # compiled buildings (records carrying `footprint`) render as REAL geometry this far out — they are the skyline, and there are only a few per cell
+const FAR_BUILDING_CAP := 4          # per far cell; props keep the tighter budget below
 const REAL_DETAIL_RADIUS := 2          # far cells WITHIN this Chebyshev distance of the player render REAL prop/scatter GLBs; beyond it, ground+structure silhouettes only. Bounds the far-ring draw calls (a tree at 60m+ is a few pixels) — mobile FPS
 # FAR "LIFE" STAND-INS — OFF. build_proxy used to drop STATIC, deliberately un-animated duplicates of
 # a far cell's enemies / crowds / NPC into the distance so the world read as populated from range. The
@@ -732,22 +734,40 @@ func build_proxy(rec: Dictionary, gx: int, gz: int) -> Node3D:
 				var su := _asset_url(sf)
 				if su != "" and builder.cache.has(su):
 					_place_scatter(root, sf, centre, half, false)   # false = no collider (visual-only far ring)
-	if _cheb(Vector2i(gx, gz), _cur_cell) <= REAL_DETAIL_RADIUS:
+	var _far_d := _cheb(Vector2i(gx, gz), _cur_cell)
+	# A BUILDING IS NOT A PROP, and the far ring used to treat it as one. Compiled buildings live in
+	# `props[]` alongside barrels and trees, so a cell holding three houses showed two of them and a
+	# town read as half-built from any distance — the "the far buildings aren't Mason" effect, which
+	# was never about Mason at all. Buildings now get their own radius and their own budget: few per
+	# cell, they ARE the silhouette, and they are what a town looks like from across a field. Props
+	# keep the tighter rule, because there are dozens of them and each is a few pixels out there.
+	# The fetch-free rule is untouched — everything here is still cache-only, never a download.
+	if _far_d <= BUILDING_DETAIL_RADIUS:
 		# FAR LANDMARK: a cell's authored set-piece (a tower/monument/mountain GLB) should read from the proxy
-		# ring, not pop in only when its cell goes fully resident. Same REAL_DETAIL gate + cache-only rule as
-		# the props below (single big mesh, no collider on the proxy). (Kept when re-syncing the engine template.)
+		# ring, not pop in only when its cell goes fully resident. Cache-only, single big mesh, no collider
+		# on the proxy. (Kept when re-syncing the engine template.)
 		var lm_far = rec.get("landmark", null)
 		if typeof(lm_far) == TYPE_DICTIONARY:
 			var lu := _asset_url(lm_far)
 			if lu != "" and builder.cache.has(lu):
 				_place_one(root, lm_far, centre, half, "")
+		var built_far := 0
+		for pf in rec.get("props", []):
+			if built_far >= FAR_BUILDING_CAP:
+				break
+			if typeof(pf) == TYPE_DICTIONARY and (pf as Dictionary).has("footprint"):
+				var bu := _asset_url(pf)
+				if bu != "" and builder.cache.has(bu):
+					if _place_one(root, pf, centre, half, ""):
+						built_far += 1
+	if _far_d <= REAL_DETAIL_RADIUS:
 		var prop_far = rec.get("props", [])
 		if prop_far is Array:
 			var placed_far := 0
 			for pf in prop_far:
 				if placed_far >= 2:   # far-ring node/memory budget (residents keep the full PROP_CAP)
 					break
-				if typeof(pf) == TYPE_DICTIONARY:
+				if typeof(pf) == TYPE_DICTIONARY and not (pf as Dictionary).has("footprint"):
 					var pu := _asset_url(pf)
 					if pu != "" and builder.cache.has(pu):
 						if _place_one(root, pf, centre, half, ""):
@@ -1180,8 +1200,13 @@ func build_cell(rec: Dictionary, gx: int, gz: int) -> Dictionary:
 				var dp := _xz(d.get("pos", [0, 0]))
 				var dpos := centre + Vector3(clampf(dp.x, -half + 1.0, half - 1.0), 0.0, clampf(dp.y, -half + 1.0, half - 1.0))
 				dpos.y = _ground_y(dpos.x, dpos.z)
+				# w/h/material are the DOORWAY this leaf fills. Authoring them is how a cathedral
+				# gets a cathedral door and a cottage gets a cottage one; omitting them gives a
+				# human-sized timber door rather than the 2.2m slab the leaf used to be fixed at.
 				interaction.add_door(dpos, float(d.get("facing", 0.0)), String(d.get("lock", "")),
-					String(d.get("label", "Door")), root, ckey, String(d.get("id", "")))
+					String(d.get("label", "Door")), root, ckey, String(d.get("id", "")),
+					float(d.get("w", 1.05)), float(d.get("h", 2.1)),
+					String(d.get("material", "timber")))
 
 	# spawn this cell's enemies at the world offset (ring around the cell centre)
 	var cell_enemies: Array = []
@@ -1566,9 +1591,21 @@ func _place_populate(root: Node, spec: Dictionary, centre: Vector3, half: float,
 	var snd := String(spec.get("sound", ""))
 	var behaviour := String(spec.get("behaviour", spec.get("behavior", "static")))   # "static" | "wander"
 	var cell_seed := int(centre.x) * 73856093 + int(centre.z) * 19349663
+	# DEAL FROM A SHUFFLED BAG, don't draw independently. An independent draw per instance means a
+	# small crowd can legitimately come up all-identical — QA found a market square whose five
+	# townsfolk were the same woman five times, which is not a bug in the seed, it is what
+	# independent draws do at small n. Dealing without replacement guarantees every model in the set
+	# appears before any repeats, and stays deterministic per cell.
+	var bag: Array = []
+	var bag_rng := GCast.rng_for(cell_seed + 7717)
 	for i in count:
 		var rng := GCast.rng_for(cell_seed + i * 1013)
-		var u := _resolve(GCast.pick(set, rng))
+		if bag.is_empty():
+			bag = (set as Array).duplicate()
+			for b in range(bag.size() - 1, 0, -1):      # deterministic Fisher-Yates
+				var j := bag_rng.randi() % (b + 1)
+				var tmp = bag[b]; bag[b] = bag[j]; bag[j] = tmp
+		var u := _resolve(bag.pop_back())
 		if u == "" or not builder.cache.has(u) or builder.cache[u] == null:
 			continue
 		var n := (builder.cache[u] as Node).duplicate() as Node3D
@@ -1788,6 +1825,16 @@ func _place_one(root: Node, ref, centre: Vector3, half: float, cell_key := "") -
 		_no_shadows(n)   # a huge landmark/creature's shadow pass is a main cause of "big monster" lag
 	# SOLID-BY-DEFAULT (shared SOLID_MIN_DIM contract): props + landmarks big enough to read as an
 	# obstacle get a derived box (or the explicit "mesh" trimesh); collider:false/"none" opts out.
+	# MASON fittings: openable doors and interior lights, built from the record's OWN spec.
+	# No markers in the glb — Godot strips ":" from node names and drops empty nodes, so a
+	# marker convention is fragile where the spec is already here and exact.
+	if ref.has("openings"):
+		_mason_fittings(n, ref)
+	# Only on a Mason building. A fetched character can legitimately carry a node called `body_low`,
+	# and surfacing that as masonry would be worse than leaving it alone. `footprint` is declared by
+	# the placement record (mason.md requires it) and `__collision` is a node only Mason emits.
+	if ref.has("footprint") or _mason_shell(n) != null:
+		_mason_materials(n)
 	var cmode := _collider_mode(ref.get("collider", null), ab, _asset_url(ref))
 	if cmode == "mesh" or cmode == "mesh_exact":
 		# "mesh_exact" opts OUT of the convex substitution in _collision_shape_for — use it when a
@@ -2000,7 +2047,66 @@ var _on_web := OS.has_feature("web")   # cached: gates the mobile particle/fill 
 # collision hot path was the only plausible source. The measured 43ms bake they were meant to avoid
 # is instead addressed at the DATA end — by decimating the few `collider:"mesh"` landmarks heavy
 # enough to cause it. Do not reintroduce caching here without a way to reproduce that freeze.
+# A MASON building ships its own `__collision` shell: the massing, without mouldings,
+# fillets or fittings. Use it in preference to the visual mesh and ALWAYS exactly.
+#
+# The visual mesh is the wrong shape to collide with. Above TRIMESH_MAX_VERTS the engine
+# substitutes a convex hull, and a hull has no holes — the doorway seals with no symptom
+# until someone walks into it. Below the threshold a concave shape still costs every tick
+# for every body touching it, and a moulded cornice contributes nothing to where you can
+# stand. Measured: a Mason shell is 96-482 tris against 660-1500 for the visual.
+const MASON_COLLISION_NODE := "__collision"
+
+# MASON MATERIALS. The compiler groups a building into solids labelled `body_<mat>` / `roof_<mat>` /
+# `trim_<mat>` and exports them with flat preview colours, on the stated understanding that the
+# ENGINE owns the surface. That half was never written, so every Mason building arrived as untextured
+# monochrome geometry standing next to textured props and characters — the single most visible gap
+# between a compiled building and a fetched one. This is that half: the label names a GSurf preset
+# and GSurf caches one material per name, so a whole town of stone shares one.
+#
+# Matched with begins_with, not equality: Godot's glTF importer uniquifies repeated node names
+# (`body_stone`, `body_stone2`), and it strips ":" entirely — which is why the separator is "_".
+const MASON_MAT_PREFIXES := ["body_", "roof_", "trim_"]
+
+static func _mason_materials(node: Node) -> void:
+	var stack: Array = [node]
+	while not stack.is_empty():
+		var nn = stack.pop_back()
+		for c in nn.get_children():
+			stack.append(c)
+		if not (nn is MeshInstance3D):
+			continue
+		var nm := String(nn.name)
+		for pre in MASON_MAT_PREFIXES:
+			if not nm.begins_with(pre):
+				continue
+			# "body_stone2" -> "stone". Trailing importer digits are not part of the preset name.
+			var mat := nm.substr(pre.length()).to_lower()
+			while mat.length() > 1 and mat[mat.length() - 1] >= "0" and mat[mat.length() - 1] <= "9":
+				mat = mat.substr(0, mat.length() - 1)
+			if GSurf.SURFACES.has(mat):
+				(nn as MeshInstance3D).material_override = GSurf.surface(mat)
+			break
+
+
+static func _mason_shell(node: Node) -> Node:
+	var stack: Array = [node]
+	while not stack.is_empty():
+		var nn = stack.pop_back()
+		if nn.name == MASON_COLLISION_NODE:
+			return nn
+		for c in nn.get_children():
+			stack.append(c)
+	return null
+
+
 func _add_mesh_collision(node: Node, exact := false, asset := "") -> void:
+	var shell := _mason_shell(node)
+	if shell != null:
+		if shell is Node3D:
+			(shell as Node3D).visible = false     # collides, never renders
+		node = shell
+		exact = true                              # the shell is already low-poly; never hull it
 	var stack: Array = [node]
 	while not stack.is_empty():
 		var nn = stack.pop_back()
@@ -2222,6 +2328,49 @@ func _exit_tree() -> void:
 # SOLID-BY-DEFAULT (shared SOLID_MIN_DIM contract, world-streaming.md §8): no field -> a box
 # collider when the AABB's largest dimension >= SOLID_MIN_DIM, walkthrough decoration below it.
 # Explicit false/"none" always opts out; explicit true -> "box"; any other string is used as-is.
+
+# Doors and lights for a Mason building. Reuses GBuild's leaf and room-light verbatim so a
+# Mason interior behaves identically to a parametric one — same "gogi_door" group, same
+# door_label, same pinned budget of one light per storey to a maximum of two.
+#
+# Frame: the building's front is model +Y, which glTF maps to -Z here. An opening at
+# {face:"s", centre:C, sill:S} therefore sits at (C, floor_z + S, -depth/2).
+func _mason_fittings(n: Node3D, ref: Dictionary) -> void:
+	var foot = ref.get("footprint", [8.0, 8.0])
+	if typeof(foot) != TYPE_ARRAY or foot.size() < 2:
+		return
+	var w := float(foot[0])
+	var d := float(foot[1])
+	var fz := 0.0
+	var itr = ref.get("interior", null)
+	if typeof(itr) == TYPE_DICTIONARY:
+		fz = float(itr.get("floor_z", 0.2))
+	elif typeof(itr) != TYPE_BOOL or not itr:
+		return                                    # no interior -> nothing to fit
+
+	for o in ref.get("openings", []):
+		if typeof(o) != TYPE_DICTIONARY:
+			continue
+		if String(o.get("face", "s")) != "s":
+			continue
+		if float(o.get("sill", 0.0)) > 0.4:
+			continue                              # a window, not a way in
+		var ow := float(o.get("w", 1.2))
+		var oh := float(o.get("h", 2.2))
+		if String(o.get("kind", "rect")) == "arch":
+			oh = float(o.get("springing", 2.0)) + float(o.get("radius", ow * 0.5))
+		var anchor := Node3D.new()
+		anchor.name = "MasonDoor"
+		anchor.position = Vector3(float(o.get("centre", 0.0)), fz, -d * 0.5)
+		n.add_child(anchor)
+		anchor.add_child(GBuild._door_leaf(ow, oh))
+
+	var floors := int(ref.get("floors", 1))
+	var fh := float(ref.get("floor_height", 3.2))
+	var rng: float = minf(maxf(w, d) * 0.75, 9.0)
+	for k in mini(floors, 2):                     # GBuild's pinned budget: 1/storey, max 2
+		n.add_child(GBuild._room_light(Vector3(0.0, fz + k * fh + fh * 0.55, 0.0), rng))
+
 func _collider_mode(spec_val, ab: AABB, asset := "") -> String:
 	if typeof(spec_val) == TYPE_BOOL:
 		return "box" if spec_val else "none"

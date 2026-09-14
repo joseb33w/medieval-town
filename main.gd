@@ -829,18 +829,30 @@ func _step_up_assist(dir: Vector3) -> void:
 	# Probe PAST the capsule radius (0.4): at exactly the radius the down-ray lands tangent to a
 	# sharp ledge face and hits the ground IN FRONT of it (step≈0) instead of the lip on top, so
 	# low sharp ledges never lifted. 0.6 = radius + margin, landing the ray solidly on the lip.
+	# THREE PROBES, not one. A single ray down the capsule's centre line means a step narrower than
+	# the capsule — or approached off-centre — is invisible: the ray misses the tread and finds the
+	# floor beyond it, reading step≈0. That is why the open side of a staircase behaved like a wall.
+	# You could climb a flight only by lining its centre up exactly, and grazing the edge stopped you
+	# dead with jump doing nothing. Probing the centre and both shoulders finds the tread from any
+	# approach; the GENTLEST qualifying lift wins, so a low step beside a tall wall still lifts and a
+	# wall alone still blocks.
 	var ahead := player.global_position + into * 0.6
+	var side := into.cross(Vector3.UP).normalized() * 0.28
 	var space := player.get_world_3d().direct_space_state
-	var q := PhysicsRayQueryParameters3D.create(
-		Vector3(ahead.x, feet + STEP_MAX + 0.1, ahead.z),
-		Vector3(ahead.x, feet - 0.5, ahead.z), L_WORLD)
-	q.exclude = [player.get_rid()]
-	var hit := space.intersect_ray(q)
-	if hit.is_empty():
-		return
-	var step := float(hit["position"].y) - feet
-	if step > 0.05 and step <= STEP_MAX:
-		player.global_position.y = float(hit["position"].y) + 0.02   # onto the lip
+	var best := INF
+	for probe in [ahead, ahead + side, ahead - side]:
+		var q := PhysicsRayQueryParameters3D.create(
+			Vector3(probe.x, feet + STEP_MAX + 0.1, probe.z),
+			Vector3(probe.x, feet - 0.5, probe.z), L_WORLD)
+		q.exclude = [player.get_rid()]
+		var hit := space.intersect_ray(q)
+		if hit.is_empty():
+			continue
+		var step := float(hit["position"].y) - feet
+		if step > 0.05 and step <= STEP_MAX:
+			best = minf(best, step)
+	if best < INF:
+		player.global_position.y = feet + best + 0.02   # onto the lip
 
 
 # TRAPPED-IN-PIT detector: arms ONLY when grounded (on the pit floor, not jumping), actively pushing, and

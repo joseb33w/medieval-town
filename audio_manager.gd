@@ -42,6 +42,7 @@ func _ready() -> void:
 		p.bus = "SFX"
 		add_child(p)
 		_sfx.append(p)
+	_capture_base_db()
 	_music = AudioStreamPlayer.new(); _music.bus = "Music"; add_child(_music)
 	_ambient = AudioStreamPlayer.new(); _ambient.bus = "Music"; add_child(_ambient)
 	_weather = AudioStreamPlayer.new(); _weather.bus = "Music"; add_child(_weather)
@@ -414,11 +415,60 @@ func unlock() -> void:
 
 
 func set_music_volume_db(db: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
+	_base_db["Music"] = db
+	if not _ducked:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
 
 
 func set_sfx_volume_db(db: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+	_base_db["SFX"] = db
+	if not _ducked:
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+
+
+# ---------------- DUCKING ----------------
+#
+# SPEECH HAS TO WIN. An NPC's voice comes back from TTS mixed conservatively; the CC0 effects are
+# peak-normalised near full scale. At equal bus gain the effects are perceptually far louder, and
+# the voice used to be on the MASTER bus entirely (created with no `.bus` at all), so neither
+# set_sfx_volume_db nor any mix the game set could get out from under it — a line of dialogue
+# played into a full-strength bed and lost.
+#
+# Now the voice has its own bus and everything else steps back while it talks. Tweened, not
+# switched: a hard gain jump on a music bed reads as a glitch, a 0.25s ramp reads as mixing.
+const DUCK_DB := -9.0
+var _base_db := {"Music": -4.0, "SFX": -6.0}
+var _ducked := false
+var _duck_tw: Tween
+var _duck_holds := 0
+
+
+func _capture_base_db() -> void:
+	for b in _base_db.keys():
+		var i := AudioServer.get_bus_index(b)
+		if i >= 0:
+			_base_db[b] = AudioServer.get_bus_volume_db(i)
+
+
+## Hold the duck while something is speaking. Reference-counted, because two NPCs mid-queue must
+## not have the first one's `false` undo the second one's `true`.
+func duck_for_speech(on: bool) -> void:
+	_duck_holds = maxi(0, _duck_holds + (1 if on else -1))
+	var want := _duck_holds > 0
+	if want == _ducked:
+		return
+	_ducked = want
+	if _duck_tw != null and _duck_tw.is_valid():
+		_duck_tw.kill()
+	_duck_tw = create_tween().set_parallel(true)
+	for b in _base_db.keys():
+		var i := AudioServer.get_bus_index(b)
+		if i < 0:
+			continue
+		var target: float = float(_base_db[b]) + (DUCK_DB if want else 0.0)
+		_duck_tw.tween_method(
+			func(v: float) -> void: AudioServer.set_bus_volume_db(i, v),
+			AudioServer.get_bus_volume_db(i), target, 0.25)
 
 
 func show_tap_overlay() -> void:
