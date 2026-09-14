@@ -118,6 +118,12 @@ const SURFACES := {
 	"dirt":      {"color": [0.40, 0.31, 0.22], "rough": 0.98, "metal": 0.0, "bump": 0.5,  "tile": 5.0},
 	"thatch":    {"color": [0.66, 0.52, 0.28], "rough": 0.95, "metal": 0.0, "bump": 0.6,  "tile": 2.0},
 	"roof_tile": {"color": [0.45, 0.22, 0.18], "rough": 0.7,  "metal": 0.0, "bump": 0.4,  "tile": 1.5},
+	# Two names the table was missing and every masonry game reaches for. Mason's palette is
+	# stone/plaster/timber/brick/slate/metal, and "stone" and "slate" both fell through to the grey
+	# default — so the most common wall and the most common roof in the library were the two that
+	# could not be surfaced by name.
+	"stone":     {"color": [0.58, 0.56, 0.52], "rough": 0.92, "metal": 0.0, "bump": 0.5,  "tile": 3.0},
+	"slate":     {"color": [0.27, 0.29, 0.33], "rough": 0.62, "metal": 0.0, "bump": 0.35, "tile": 1.8},
 }
 
 # Per-channel albedo ceiling (see header). Applied ONLY where albedo is resolved (_resolve); never to emission.

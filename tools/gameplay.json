@@ -3,19 +3,23 @@
     "cycle": [
       {
         "time": "sunrise",
-        "weather": "clear"
+        "weather": "clear",
+        "seconds": 25
       },
       {
         "time": "day",
-        "weather": "cloudy"
+        "weather": "cloudy",
+        "seconds": 90
       },
       {
         "time": "sunset",
-        "weather": "clear"
+        "weather": "clear",
+        "seconds": 25
       },
       {
         "time": "night",
-        "weather": "clear"
+        "weather": "clear",
+        "seconds": 60
       }
     ],
     "loop": true

@@ -16,11 +16,32 @@
   ]
  },
  "character_source": "meshy",
- "hero_model": "/cloud-mjvfxf53deudzlkx4zre/models/meshy/traveler.glb",
- "default_npc_model": "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
+ "hero_model": "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/traveler.glb",
+ "default_npc_model": "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
  "sky": {
-  "time": "day",
-  "weather": "cloudy"
+  "cycle": [
+   {
+    "time": "sunrise",
+    "weather": "clear",
+    "seconds": 25
+   },
+   {
+    "time": "day",
+    "weather": "cloudy",
+    "seconds": 90
+   },
+   {
+    "time": "sunset",
+    "weather": "clear",
+    "seconds": 25
+   },
+   {
+    "time": "night",
+    "weather": "clear",
+    "seconds": 60
+   }
+  ],
+  "loop": true
  },
  "items": {
   "potion": {
@@ -1503,13 +1524,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_a.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
      "pos": [
       6.4,
       -2.0
      ],
      "rot": 90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      7.0,
+      6.0
+     ]
     },
     {
      "url": "props/mod_village/Prop_Cart_1_Barrels.glb",
@@ -1595,9 +1620,9 @@
    "populate": [
     {
      "set": [
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/market_woman.glb"
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/market_woman.glb"
      ],
      "count": 2,
      "vary": true,
@@ -1611,10 +1636,12 @@
      "id": "door_house_a_0_0_-2",
      "pos": [
       3.6,
-      -0.9
+      -0.85
      ],
      "facing": 90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -2290,13 +2317,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_c.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
      "pos": [
       4.5,
       6.15
      ],
      "rot": 0,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.0,
+      5.5
+     ]
     },
     {
      "url": "props/mod_village/Prop_Cart_1_Hay.glb",
@@ -2372,11 +2403,13 @@
     {
      "id": "door_house_c_0_-2_-1",
      "pos": [
-      3.4,
+      3.35,
       3.6
      ],
      "facing": 0.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -2465,22 +2498,30 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_b.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_b.glb",
      "pos": [
       -5.0,
       -6.65
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      8.0,
+      6.5
+     ]
     },
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_a.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
      "pos": [
       -5.5,
       6.4
      ],
      "rot": 0,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      7.0,
+      6.0
+     ]
     },
     {
      "url": "props/mod_village/Prop_Cart_1_Hay.glb",
@@ -2551,20 +2592,24 @@
     {
      "id": "door_house_b_0_-1_-1",
      "pos": [
-      -1.9,
+      -1.85,
       -3.6
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     },
     {
      "id": "door_house_a_1_-1_-1",
      "pos": [
-      -6.6,
+      -6.65,
       3.6
      ],
      "facing": 0.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -2652,22 +2697,30 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_a.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
      "pos": [
       -6.4,
       -6.5
      ],
      "rot": -90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      7.0,
+      6.0
+     ]
     },
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_c.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
      "pos": [
       6.15,
       -6.5
      ],
      "rot": 90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.0,
+      5.5
+     ]
     },
     {
      "url": "props/q_unature/CommonTree_1.glb",
@@ -2748,19 +2801,23 @@
      "id": "door_house_a_0_0_-1",
      "pos": [
       -3.6,
-      -7.6
+      -7.65
      ],
      "facing": -90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     },
     {
      "id": "door_house_c_1_0_-1",
      "pos": [
       3.6,
-      -5.4
+      -5.35
      ],
      "facing": 90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -2863,13 +2920,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_d.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_d.glb",
      "pos": [
       -5.0,
       -7.4
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.5,
+      8.0
+     ]
     },
     {
      "url": "props/q_unature/BirchTree_2.glb",
@@ -2948,11 +3009,13 @@
     {
      "id": "door_house_d_0_1_-1",
      "pos": [
-      -3.9,
+      -3.85,
       -3.6
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -3459,13 +3522,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/chapel.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/chapel.glb",
      "pos": [
       -2.0,
       0.0
      ],
      "rot": -90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      7.0,
+      12.0
+     ]
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -3644,13 +3711,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_b.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_b.glb",
      "pos": [
       6.65,
       -5.0
      ],
      "rot": 90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      8.0,
+      6.5
+     ]
     },
     {
      "url": "props/q_unature/CommonTree_1.glb",
@@ -3736,9 +3807,9 @@
    "populate": [
     {
      "set": [
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/market_woman.glb"
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/market_woman.glb"
      ],
      "count": 2,
      "vary": true,
@@ -3752,10 +3823,12 @@
      "id": "door_house_b_0_-1_0",
      "pos": [
       3.6,
-      -1.9
+      -1.85
      ],
      "facing": 90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -3766,13 +3839,17 @@
    ],
    "ground": "cobble",
    "landmark": {
-    "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/town_hall.glb",
+    "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/town_hall.glb",
     "pos": [
      0,
      0
     ],
     "rot": 180,
-    "collider": "mesh_exact"
+    "collider": "mesh_exact",
+    "footprint": [
+     12.0,
+     9.0
+    ]
    },
    "props": [
     {
@@ -3870,7 +3947,7 @@
      4.0,
      7.5
     ],
-    "model": "/cloud-mjvfxf53deudzlkx4zre/models/meshy/steward.glb",
+    "model": "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/steward.glb",
     "persona": "Aldric, the steward of Ashford Green's town hall. Proud of the new council chamber upstairs. Warm, a little pompous, two short sentences max.",
     "lines": [
      "Steward Aldric: Welcome to Ashford Green, traveller."
@@ -3880,11 +3957,13 @@
     {
      "id": "door_town_hall_0_0_0",
      "pos": [
-      1.1,
+      1.15,
       4.275
      ],
      "facing": 180.0,
-     "label": "Town Hall Door"
+     "label": "Town Hall Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ],
    "rows": [
@@ -3996,13 +4075,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_c.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
      "pos": [
       -6.15,
       -5.5
      ],
      "rot": -90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.0,
+      5.5
+     ]
     },
     {
      "url": "props/q_unature/CommonTree_1.glb",
@@ -4083,10 +4166,12 @@
      "id": "door_house_c_0_1_0",
      "pos": [
       -3.6,
-      -6.6
+      -6.65
      ],
      "facing": -90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -4159,13 +4244,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_c.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
      "pos": [
       -5.0,
       -6.15
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.0,
+      5.5
+     ]
     },
     {
      "url": "props/mega_fantasy/Anvil.glb",
@@ -4243,7 +4332,7 @@
      1.5,
      -1.0
     ],
-    "model": "/cloud-mjvfxf53deudzlkx4zre/models/meshy/blacksmith.glb",
+    "model": "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/blacksmith.glb",
     "persona": "Marta, the blacksmith of Ashford Green, working an open-air forge at the end of Forge Lane. Blunt, good-humoured, proud of her hinges on the town hall doors. Two short sentences max.",
     "lines": [
      "Marta the Smith: Mind the anvil, it's hotter than it looks."
@@ -4267,11 +4356,13 @@
     {
      "id": "door_house_c_0_2_0",
      "pos": [
-      -3.9,
+      -3.85,
       -3.6
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -4647,22 +4738,30 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_a.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
      "pos": [
       -5.5,
       -6.4
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      7.0,
+      6.0
+     ]
     },
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_d.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_d.glb",
      "pos": [
       -3.0,
       7.4
      ],
      "rot": 0,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.5,
+      8.0
+     ]
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -4741,20 +4840,24 @@
     {
      "id": "door_house_a_0_-2_1",
      "pos": [
-      -4.4,
+      -4.35,
       -3.6
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     },
     {
      "id": "door_house_d_1_-2_1",
      "pos": [
-      -4.1,
+      -4.15,
       3.6
      ],
      "facing": 0.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -4872,22 +4975,30 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_b.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_b.glb",
      "pos": [
       6.0,
       -6.65
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      8.0,
+      6.5
+     ]
     },
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_c.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
      "pos": [
       -6.15,
       -6.0
      ],
      "rot": -90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.0,
+      5.5
+     ]
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -4965,20 +5076,24 @@
     {
      "id": "door_house_b_0_-1_1",
      "pos": [
-      9.1,
+      9.15,
       -3.6
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     },
     {
      "id": "door_house_c_1_-1_1",
      "pos": [
       -3.6,
-      -7.1
+      -7.15
      ],
      "facing": -90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -5149,9 +5264,9 @@
    "populate": [
     {
      "set": [
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/market_woman.glb"
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/market_woman.glb"
      ],
      "count": 4,
      "vary": true,
@@ -5167,7 +5282,7 @@
      -4.8,
      -3.0
     ],
-    "model": "/cloud-mjvfxf53deudzlkx4zre/models/meshy/market_woman.glb",
+    "model": "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/market_woman.glb",
     "persona": "Greta, a cheerful market woman selling apples and bread on the plaza of Ashford Green. Chatty and kind, always trying to sell you something. Two short sentences max.",
     "lines": [
      "Greta: Apples fresh from the orchard, traveller - two for a copper!"
@@ -5289,22 +5404,30 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_d.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_d.glb",
      "pos": [
       -5.5,
       7.4
      ],
      "rot": 0,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.5,
+      8.0
+     ]
     },
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_c.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_c.glb",
      "pos": [
       6.0,
       -6.15
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      6.0,
+      5.5
+     ]
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -5374,9 +5497,9 @@
    "populate": [
     {
      "set": [
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/villager_man.glb",
-      "/cloud-mjvfxf53deudzlkx4zre/models/meshy/market_woman.glb"
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/villager_man.glb",
+      "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/market_woman.glb"
      ],
      "count": 2,
      "vary": true,
@@ -5389,20 +5512,24 @@
     {
      "id": "door_house_d_0_1_1",
      "pos": [
-      -6.6,
+      -6.65,
       3.6
      ],
      "facing": 0.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     },
     {
      "id": "door_house_c_1_1_1",
      "pos": [
-      7.1,
+      7.15,
       -3.6
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -5468,22 +5595,30 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/tavern.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/tavern.glb",
      "pos": [
       0.0,
       -7.4
      ],
      "rot": 180,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      10.0,
+      8.0
+     ]
     },
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_a.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_a.glb",
      "pos": [
       5.0,
       6.4
      ],
      "rot": 0,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      7.0,
+      6.0
+     ]
     },
     {
      "url": "props/mod_village/Prop_Lamp_Street.glb",
@@ -5579,20 +5714,24 @@
     {
      "id": "door_tavern_0_2_1",
      "pos": [
-      3.6,
+      3.65,
       -3.625
      ],
      "facing": 180.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     },
     {
      "id": "door_house_a_1_2_1",
      "pos": [
-      3.9,
+      3.85,
       3.6
      ],
      "facing": 0.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -6212,13 +6351,17 @@
    ],
    "props": [
     {
-     "url": "/cloud-mjvfxf53deudzlkx4zre/models/town/house_b.glb",
+     "url": "/cloud-ahdwaq6ir1exe3c168f9/models/town/house_b.glb",
      "pos": [
       -6.65,
       3.0
      ],
      "rot": -90,
-     "collider": "mesh_exact"
+     "collider": "mesh_exact",
+     "footprint": [
+      8.0,
+      6.5
+     ]
     },
     {
      "url": "props/q_unature/CommonTree_3.glb",
@@ -6305,10 +6448,12 @@
      "id": "door_house_b_0_0_2",
      "pos": [
       -3.6,
-      -0.1
+      -0.15
      ],
      "facing": -90.0,
-     "label": "Door"
+     "label": "Door",
+     "w": 2.3,
+     "h": 3.1
     }
    ]
   },
@@ -7408,7 +7553,7 @@
      2.8,
      -6.0
     ],
-    "model": "/cloud-mjvfxf53deudzlkx4zre/models/meshy/guard.glb",
+    "model": "/cloud-ahdwaq6ir1exe3c168f9/models/meshy/guard.glb",
     "persona": "A town guard at the south gate of Ashford Green, a peaceful farming town. Bored but polite, gives directions. Two short sentences max.",
     "lines": [
      "Town Guard: Welcome to Ashford Green. The plaza and the town hall are straight up the road."
@@ -7984,246 +8129,6 @@
     }
    ],
    "once": true
-  },
-  {
-   "id": "quiet_door_house_a_0_0_-2",
-   "when": {
-    "event": "interact",
-    "target": "door_house_a_0_0_-2"
-   },
-   "then": [
-    {
-     "open_door": "door_house_a_0_0_-2"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_c_0_-2_-1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_c_0_-2_-1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_c_0_-2_-1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_b_0_-1_-1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_b_0_-1_-1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_b_0_-1_-1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_a_1_-1_-1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_a_1_-1_-1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_a_1_-1_-1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_a_0_0_-1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_a_0_0_-1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_a_0_0_-1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_c_1_0_-1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_c_1_0_-1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_c_1_0_-1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_d_0_1_-1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_d_0_1_-1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_d_0_1_-1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_b_0_-1_0",
-   "when": {
-    "event": "interact",
-    "target": "door_house_b_0_-1_0"
-   },
-   "then": [
-    {
-     "open_door": "door_house_b_0_-1_0"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_town_hall_0_0_0",
-   "when": {
-    "event": "interact",
-    "target": "door_town_hall_0_0_0"
-   },
-   "then": [
-    {
-     "open_door": "door_town_hall_0_0_0"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_c_0_1_0",
-   "when": {
-    "event": "interact",
-    "target": "door_house_c_0_1_0"
-   },
-   "then": [
-    {
-     "open_door": "door_house_c_0_1_0"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_c_0_2_0",
-   "when": {
-    "event": "interact",
-    "target": "door_house_c_0_2_0"
-   },
-   "then": [
-    {
-     "open_door": "door_house_c_0_2_0"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_a_0_-2_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_a_0_-2_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_a_0_-2_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_d_1_-2_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_d_1_-2_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_d_1_-2_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_b_0_-1_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_b_0_-1_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_b_0_-1_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_c_1_-1_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_c_1_-1_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_c_1_-1_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_d_0_1_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_d_0_1_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_d_0_1_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_c_1_1_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_c_1_1_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_c_1_1_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_tavern_0_2_1",
-   "when": {
-    "event": "interact",
-    "target": "door_tavern_0_2_1"
-   },
-   "then": [
-    {
-     "open_door": "door_tavern_0_2_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_a_1_2_1",
-   "when": {
-    "event": "interact",
-    "target": "door_house_a_1_2_1"
-   },
-   "then": [
-    {
-     "open_door": "door_house_a_1_2_1"
-    }
-   ]
-  },
-  {
-   "id": "quiet_door_house_b_0_0_2",
-   "when": {
-    "event": "interact",
-    "target": "door_house_b_0_0_2"
-   },
-   "then": [
-    {
-     "open_door": "door_house_b_0_0_2"
-    }
-   ]
   }
  ],
  "hud": []

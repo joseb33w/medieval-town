@@ -87,8 +87,12 @@ func _physics_process(_d: float) -> void:
 		prompt.text = ""
 		return
 	if _speaking:
-		prompt.text = _speaker_name + " is speaking..."
-		return
+		# Still name the speaker, but only when the speaker is what USE would act on — otherwise
+		# the prompt hid the door you were standing at behind somebody else's dialogue.
+		var near_now = _nearest(2.9)
+		if near_now == null or String(near_now.get("kind", "")) == "npc":
+			prompt.text = _speaker_name + " is speaking..."
+			return
 	if active:
 		prompt.text = "tap dialogue / USE to continue"
 		return
@@ -150,30 +154,46 @@ func add_seam(pos: Vector3, to_area: String, spawn: String, lock: String, label:
 # A PHYSICAL openable door (chunk open worlds) — NOT a seam/teleport. A leaf on a hinge pivot
 # with a blocking collider; USE swings it open (Tween) + disables the collider so you walk
 # through. Optional `lock` token works like a seam lock (needs the item key or a quest flag).
-func add_door(pos: Vector3, facing: float, lock: String, label: String, parent: Node = null, cell_key := "", id := "") -> void:
+## `w`/`h` are the DOORWAY the leaf fills, in metres. They used to be the constants 2.2 x 3.0 baked
+## into the mesh below — a barn door, roughly twice the width of a real one, on every house in every
+## game. Worse, it was load-bearing in the other direction: a compiler authoring an opening for this
+## leaf had to cut a 2.3m hole to fit it, so one hardcoded number set the proportions of whole towns.
+## The defaults are now a door a person walks through; a grand entrance passes its own numbers.
+## `material` names a GSurf surface so the leaf reads as part of the building it hangs in.
+func add_door(pos: Vector3, facing: float, lock: String, label: String, parent: Node = null,
+		cell_key := "", id := "", w := 1.05, h := 2.1, material := "timber") -> void:
 	var par: Node = parent if parent != null else area_parent
 	var pivot := Node3D.new()
 	pivot.position = pos
 	pivot.rotation.y = deg_to_rad(facing)
 	par.add_child(pivot)
+	var ow := maxf(0.6, w)
+	var oh := maxf(1.6, h)
 	# the door leaf, offset +x of the hinge so it swings about the pivot edge
 	var mi := MeshInstance3D.new()
 	var bm := BoxMesh.new()
-	bm.size = Vector3(2.2, 3.0, 0.22)
+	bm.size = Vector3(ow - 0.05, oh - 0.06, 0.1)
 	mi.mesh = bm
-	mi.material_override = _mat(Color(0.46, 0.30, 0.17) if lock == "" else Color(0.30, 0.20, 0.12))
-	mi.position = Vector3(1.1, 1.5, 0.0)
+	# A locked door reads darker, but the base is the building's own surface rather than a literal
+	# brown — GSurf is what every other timber in the world is made of.
+	var surf := GSurf.surface(material)
+	if surf != null and lock == "":
+		mi.material_override = surf
+	else:
+		mi.material_override = _mat(Color(0.46, 0.30, 0.17) if lock == "" else Color(0.30, 0.20, 0.12))
+	mi.position = Vector3((ow - 0.05) * 0.5, oh * 0.5, 0.0)
 	pivot.add_child(mi)
 	var body := StaticBody3D.new()
 	body.collision_layer = 1
 	var cs := CollisionShape3D.new()
 	var bs := BoxShape3D.new()
-	bs.size = Vector3(2.4, 3.0, 0.4)
+	bs.size = Vector3(ow, oh, 0.18)
 	cs.shape = bs
-	cs.position = Vector3(1.1, 1.5, 0.0)
+	cs.position = Vector3(ow * 0.5, oh * 0.5, 0.0)
 	body.add_child(cs)
 	pivot.add_child(body)
-	items.append({kind = "door", pos = pos, label = label, id = (id if id != "" else label),
+	items.append({kind = "door", pos = pos, label = label, door_name = label,
+		id = (id if id != "" else label),
 		lock = lock, facing = facing, pivot = pivot, shape = cs, open = false,
 		closed_yaw = pivot.rotation.y, cell = cell_key})
 
@@ -297,10 +317,15 @@ func remove_cell(cell_key: String) -> void:
 func try_use() -> void:
 	if scene_manager and scene_manager.transitioning:
 		return
-	# While an NPC is speaking, USE is a no-op (the lines play through as audio); this
-	# stops a second tap from re-triggering the talk mid-sentence.
+	# A SPEAKING NPC BLOCKS ONLY ITSELF. This used to be a blanket `if _speaking: return`, which
+	# handed the whole USE verb to the TTS endpoint: while a line was in flight nothing else in the
+	# world could be used — no door, no chest, no vehicle — and if /speak never answered, that was
+	# permanent. It now refuses only a re-tap on the character actually mid-sentence, which is the
+	# thing the guard was really for.
 	if _speaking:
-		return
+		var talking = _nearest(2.9)
+		if talking == null or String(talking.get("kind", "")) == "npc":
+			return
 	if active:
 		_advance()
 		return
@@ -388,8 +413,12 @@ func _nearest(rng: float):
 	for it in items:
 		if it.kind == "chest" and it.opened:
 			continue
-		if it.kind == "door" and it.get("open", false):
-			continue
+		if it.kind == "door":
+			# An open door STAYS targetable so USE can shut it, exactly as a structure door does.
+			# It used to be skipped here, which made every hinged door in the game open-once: the
+			# leaf swung, the entry left the USE list, and nothing could ever close it again. The
+			# prompt flips Open<->Close the way the sdoor branch does.
+			it.label = _hinged_label(it)
 		if it.kind == "sdoor":
 			# structure doors TOGGLE — an open one stays targetable so USE can close it; the
 			# prompt flips Open<->Close. Skip entries whose leaf was freed (eviction in flight).
@@ -466,6 +495,8 @@ func _use_seam(it: Dictionary) -> void:
 
 func _open_door(it: Dictionary) -> void:
 	if it.get("open", false):
+		_swing_door(it, false)          # TOGGLE — USE on an open door shuts it
+		_show(["The door swings shut."])
 		return
 	# locked door: needs the item key OR a quest flag (same rule as a seam lock) — but the lock is
 	# ONE-WAY: it bars entry only from the door's FRONT (+Z after facing) side. From the far
@@ -552,6 +583,15 @@ func _toggle_structure_door(it: Dictionary) -> void:
 
 # Prompt label for a structure door: the registered label while shut (e.g. "Open Door"), its
 # Open->Close counterpart while open, so the USE prompt reads as the toggle it is.
+## Prompt for a HINGED door (kind "door"). Closed reads as the author wrote it ("Town Hall Door"),
+## open gains the verb that says what USE will now do. Kept separate from _door_label because that
+## one is built around the structure door's fixed "Open Door" meta, and a hinged door carries a
+## real name worth keeping on screen.
+func _hinged_label(it: Dictionary) -> String:
+	var base := String(it.get("door_name", it.get("label", "Door")))
+	return ("Close " + base) if it.get("open", false) else base
+
+
 func _door_label(it: Dictionary) -> String:
 	var base := String(it.get("open_label", "Open Door"))
 	if not it.get("open", false):
@@ -740,17 +780,25 @@ func _enqueue_speech(text: String, voice: String, name: String) -> void:
 
 func _speak_next() -> void:
 	if _speak_queue.is_empty():
+		if _speaking:
+			AudioManager.duck_for_speech(false)
 		_speaking = false
 		_speaker_name = ""
 		return
-	_speaking = true
 	var item: Dictionary = _speak_queue.pop_front()
 	_speaker_name = String(item.get("name", ""))
 	if voice_player == null:
 		# no audio device (shouldn't happen) — just drain so we don't wedge
 		_speak_next()
 		return
+	if not _speaking:
+		AudioManager.duck_for_speech(true)
+	_speaking = true
 	var req := HTTPRequest.new()
+	# TIMEOUT. Without one a /speak that never answers leaves `_speaking` true forever — and USE
+	# used to be gated on it, so the game's only verb died silently and permanently. Observed in QA:
+	# two minutes of "… is speaking" with no audio and a door that would not open.
+	req.timeout = 8.0
 	add_child(req)
 	req.request_completed.connect(func(_r: int, c: int, _h: PackedStringArray, b: PackedByteArray) -> void:
 		req.queue_free()
@@ -834,7 +882,11 @@ func _build_ui(hud: CanvasLayer) -> void:
 	hud.add_child(dlg_box)
 
 	# Audio sink for spoken NPC dialogue (created once, lives on this system node).
+	# ON ITS OWN BUS. It used to be created bare — no `.bus`, so it landed on Master, under nothing
+	# the game could mix — and the effects bus sat at the same nominal gain while carrying samples
+	# normalised far hotter. Dialogue lost every time and no volume control reached it.
 	voice_player = AudioStreamPlayer.new()
+	voice_player.bus = "Voice"
 	add_child(voice_player)
 	voice_player.finished.connect(_on_voice_finished)
 

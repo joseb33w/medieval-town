@@ -15,7 +15,6 @@ BUILD_ID = os.environ.get("BUILD_ID", "cloud-mjvfxf53deudzlkx4zre")
 MASON = "/workspace/mason"
 PP_DIR = "/tmp/masonpp"   # gltf-transform deps live OUTSIDE the project (never in the export)
 OUT = "/tmp/mason-out"
-DOOR_LEAF_HALF = 1.1        # interaction.add_door hangs a 2.2 x 3.0 leaf, hinge at the pivot, extending +X
 
 
 def load(p):
@@ -70,6 +69,11 @@ def door_of(spec):
     return None
 
 
+def sp_footprint(spec):
+    w, d = spec["footprint"][:2]
+    return float(w), float(d)
+
+
 def rot_xz(x, z, deg):
     t = math.radians(deg)
     return x * math.cos(t) + z * math.sin(t), -x * math.sin(t) + z * math.cos(t)
@@ -96,10 +100,15 @@ def wire(world, specs, cell_size):
                 sys.exit(f"unknown MASON type {tid} in cell {c['cell']}")
             e["url"] = f"/{BUILD_ID}/models/town/{tid}.glb"
             e["collider"] = "mesh_exact"
+            # `footprint` marks the record as a BUILDING: the engine applies the Mason GSurf surfaces
+            # to the body_/roof_/trim_ solids and draws it across the far ring as skyline.
+            e["footprint"] = list(sp_footprint(by_id[tid]))
             px, pz = (e.get("pos") or [0, 0])[:2]
             rot = float(e.get("rot", 0.0))
             placed.append({"type": tid, "cell": [gx, gz], "world": [cx + px, cz + pz], "rot": rot})
-    # door leaves: one hinged, USE-openable door per rect front doorway
+    # door leaves: one hinged, USE-openable door per rect front doorway. interaction.add_door sizes
+    # the leaf from w/h and hangs it hinge-at-pivot extending +X, so the hinge sits half a doorway
+    # from the opening's centre.
     for p in placed:
         sp = by_id[p["type"]]
         d = door_of(sp)
@@ -108,12 +117,12 @@ def wire(world, specs, cell_size):
         off, w, h = d
         depth = float(sp["footprint"][1])
         wall_t = float(sp.get("wall_t", 0.35))
-        # door centre in Godot space at rot 0: (off, -depth/2) -- the front face is -Z; the 0.22 m leaf
+        # door centre in Godot space at rot 0: (off, -depth/2) -- the front face is -Z; the leaf
         # hangs at mid-wall so it sits INSIDE the opening's reveal instead of half proud of the facade
         dx, dz = rot_xz(off, -(depth / 2.0 - wall_t / 2.0), p["rot"])
         wx, wz = p["world"][0] + dx, p["world"][1] + dz
         ldx, ldz = rot_xz(1.0, 0.0, p["rot"])          # the leaf runs along the wall (+X local)
-        hx, hz = wx - DOOR_LEAF_HALF * ldx, wz - DOOR_LEAF_HALF * ldz
+        hx, hz = wx - (w / 2.0) * ldx, wz - (w / 2.0) * ldz
         # register the door in the cell that CONTAINS the hinge so the +-(half-1) clamp never bites
         cgx, cgz = math.floor(hx / cell_size), math.floor(hz / cell_size)
         cell = cells.get((cgx, cgz))
@@ -124,7 +133,7 @@ def wire(world, specs, cell_size):
         cell.setdefault("doors", []).append({
             "id": f"door_{p['type']}_{len(cell.get('doors', []))}_{cgx}_{cgz}",
             "pos": [round(hx - ccx, 3), round(hz - ccz, 3)],
-            "facing": p["rot"], "label": label})
+            "facing": p["rot"], "label": label, "w": w, "h": h})
         p["door_world"] = [round(wx, 2), round(wz, 2)]
     # BALUSTRADE along each stair flight's open edge: a thin timber wall from the floor up through the
     # stairwell cutout (guards the upper-floor opening too). The engine's step-up probe reads the floor
@@ -180,13 +189,6 @@ def main():
     world = rewrite_meshy_paths(world)
     for k, v in gameplay.items():
         world[k] = v
-    # USE on a door fires `interact` BEFORE the engine's own handler; opening it from a rule means the
-    # handler finds it already open and skips its "The door swings open." dialogue panel (Game-Feel P1-2)
-    for c in world["cells"]:
-        for d in c.get("doors", []):
-            world.setdefault("rules", []).append({
-                "id": "quiet_" + d["id"], "when": {"event": "interact", "target": d["id"]},
-                "then": [{"open_door": d["id"]}]})
     with open(f"{ROOT}/world.json", "w") as f:
         json.dump(world, f, indent=1)
     with open(f"{ROOT}/tools/placements.json", "w") as f:
